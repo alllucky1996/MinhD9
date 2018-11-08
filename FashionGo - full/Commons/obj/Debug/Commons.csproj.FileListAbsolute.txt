@@ -1,0 +1,109 @@
+D:\ASPNET\FashionGo\Commons\bin\Debug\Commons.dll.config
+D:\ASPNET\FashionGo\Commons\bin\Debug\Commons.dll
+D:\ASPNET\FashionGo\Commons\bin\Debug\Commons.pdb
+D:\ASPNET\FashionGo\Commons\bin\Debug\vi\Commons.resources.dll
+D:\ASPNET\FashionGo\Commons\bin\Debug\Antlr3.Runtime.dll
+D:\ASPNET\FashionGo\Commons\bin\Debug\EntityFramework.dll
+D:\ASPNET\FashionGo\Commons\bin\Debug\EntityFramework.SqlServer.dll
+D:\ASPNET\FashionGo\Commons\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\ASPNET\FashionGo\Commons\bin\Debug\Newtonsoft.Json.dll
+D:\ASPNET\FashionGo\Commons\bin\Debug\System.Web.Helpers.dll
+D:\ASPNET\FashionGo\Commons\bin\Debug\System.Web.Mvc.dll
+D:\ASPNET\FashionGo\Commons\bin\Debug\System.Web.Optimization.dll
+D:\ASPNET\FashionGo\Commons\bin\Debug\System.Web.Razor.dll
+D:\ASPNET\FashionGo\Commons\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\ASPNET\FashionGo\Commons\bin\Debug\System.Web.WebPages.dll
+D:\ASPNET\FashionGo\Commons\bin\Debug\System.Web.WebPages.Razor.dll
+D:\ASPNET\FashionGo\Commons\bin\Debug\WebGrease.dll
+D:\ASPNET\FashionGo\Commons\bin\Debug\Antlr3.Runtime.pdb
+D:\ASPNET\FashionGo\Commons\bin\Debug\EntityFramework.xml
+D:\ASPNET\FashionGo\Commons\bin\Debug\EntityFramework.SqlServer.xml
+D:\ASPNET\FashionGo\Commons\bin\Debug\Newtonsoft.Json.xml
+D:\ASPNET\FashionGo\Commons\bin\Debug\System.Web.Helpers.xml
+D:\ASPNET\FashionGo\Commons\bin\Debug\System.Web.Mvc.xml
+D:\ASPNET\FashionGo\Commons\bin\Debug\System.Web.Optimization.xml
+D:\ASPNET\FashionGo\Commons\bin\Debug\System.Web.Razor.xml
+D:\ASPNET\FashionGo\Commons\bin\Debug\System.Web.WebPages.xml
+D:\ASPNET\FashionGo\Commons\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\ASPNET\FashionGo\Commons\bin\Debug\System.Web.WebPages.Razor.xml
+D:\ASPNET\FashionGo\Commons\obj\Debug\Commons.I18N.Global.resources
+D:\ASPNET\FashionGo\Commons\obj\Debug\Commons.I18N.Global.vi.resources
+D:\ASPNET\FashionGo\Commons\obj\Debug\Commons.csproj.GenerateResource.Cache
+D:\ASPNET\FashionGo\Commons\obj\Debug\vi\Commons.resources.dll
+D:\ASPNET\FashionGo\Commons\obj\Debug\Commons.dll
+D:\ASPNET\FashionGo\Commons\obj\Debug\Commons.pdb
+D:\ASPNET\FashionGo\Commons\obj\Debug\Commons.csprojResolveAssemblyReference.cache
+C:\code_web\FashionGo - full\Commons\bin\Debug\Commons.dll.config
+C:\code_web\FashionGo - full\Commons\bin\Debug\Commons.dll
+C:\code_web\FashionGo - full\Commons\bin\Debug\Commons.pdb
+C:\code_web\FashionGo - full\Commons\bin\Debug\vi\Commons.resources.dll
+C:\code_web\FashionGo - full\Commons\bin\Debug\Antlr3.Runtime.dll
+C:\code_web\FashionGo - full\Commons\bin\Debug\EntityFramework.dll
+C:\code_web\FashionGo - full\Commons\bin\Debug\EntityFramework.SqlServer.dll
+C:\code_web\FashionGo - full\Commons\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\code_web\FashionGo - full\Commons\bin\Debug\Newtonsoft.Json.dll
+C:\code_web\FashionGo - full\Commons\bin\Debug\System.Web.Helpers.dll
+C:\code_web\FashionGo - full\Commons\bin\Debug\System.Web.Mvc.dll
+C:\code_web\FashionGo - full\Commons\bin\Debug\System.Web.Optimization.dll
+C:\code_web\FashionGo - full\Commons\bin\Debug\System.Web.Razor.dll
+C:\code_web\FashionGo - full\Commons\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\code_web\FashionGo - full\Commons\bin\Debug\System.Web.WebPages.dll
+C:\code_web\FashionGo - full\Commons\bin\Debug\System.Web.WebPages.Razor.dll
+C:\code_web\FashionGo - full\Commons\bin\Debug\WebGrease.dll
+C:\code_web\FashionGo - full\Commons\bin\Debug\Antlr3.Runtime.pdb
+C:\code_web\FashionGo - full\Commons\bin\Debug\EntityFramework.xml
+C:\code_web\FashionGo - full\Commons\bin\Debug\EntityFramework.SqlServer.xml
+C:\code_web\FashionGo - full\Commons\bin\Debug\Newtonsoft.Json.xml
+C:\code_web\FashionGo - full\Commons\bin\Debug\System.Web.Helpers.xml
+C:\code_web\FashionGo - full\Commons\bin\Debug\System.Web.Mvc.xml
+C:\code_web\FashionGo - full\Commons\bin\Debug\System.Web.Optimization.xml
+C:\code_web\FashionGo - full\Commons\bin\Debug\System.Web.Razor.xml
+C:\code_web\FashionGo - full\Commons\bin\Debug\System.Web.WebPages.xml
+C:\code_web\FashionGo - full\Commons\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\code_web\FashionGo - full\Commons\bin\Debug\System.Web.WebPages.Razor.xml
+C:\code_web\FashionGo - full\Commons\obj\Debug\Commons.csprojAssemblyReference.cache
+C:\code_web\FashionGo - full\Commons\obj\Debug\Commons.I18N.Global.resources
+C:\code_web\FashionGo - full\Commons\obj\Debug\Commons.I18N.Global.vi.resources
+C:\code_web\FashionGo - full\Commons\obj\Debug\Commons.csproj.GenerateResource.cache
+C:\code_web\FashionGo - full\Commons\obj\Debug\Commons.csproj.CoreCompileInputs.cache
+C:\code_web\FashionGo - full\Commons\obj\Debug\vi\Commons.resources.dll
+C:\code_web\FashionGo - full\Commons\obj\Debug\Commons.csproj.CopyComplete
+C:\code_web\FashionGo - full\Commons\obj\Debug\Commons.dll
+C:\code_web\FashionGo - full\Commons\obj\Debug\Commons.pdb
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\Commons.dll.config
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\Commons.dll
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\Commons.pdb
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\vi\Commons.resources.dll
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\Antlr3.Runtime.dll
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\EntityFramework.dll
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\EntityFramework.SqlServer.dll
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\Newtonsoft.Json.dll
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\System.Web.Helpers.dll
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\System.Web.Mvc.dll
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\System.Web.Optimization.dll
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\System.Web.Razor.dll
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\System.Web.WebPages.dll
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\WebGrease.dll
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\Antlr3.Runtime.pdb
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\EntityFramework.xml
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\EntityFramework.SqlServer.xml
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\Newtonsoft.Json.xml
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\System.Web.Helpers.xml
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\System.Web.Mvc.xml
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\System.Web.Optimization.xml
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\System.Web.Razor.xml
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\System.Web.WebPages.xml
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Git\FashionGo - full\FashionGo - full\Commons\obj\Debug\Commons.csprojAssemblyReference.cache
+D:\Git\FashionGo - full\FashionGo - full\Commons\obj\Debug\Commons.I18N.Global.resources
+D:\Git\FashionGo - full\FashionGo - full\Commons\obj\Debug\Commons.I18N.Global.vi.resources
+D:\Git\FashionGo - full\FashionGo - full\Commons\obj\Debug\Commons.csproj.GenerateResource.cache
+D:\Git\FashionGo - full\FashionGo - full\Commons\obj\Debug\Commons.csproj.CoreCompileInputs.cache
+D:\Git\FashionGo - full\FashionGo - full\Commons\obj\Debug\vi\Commons.resources.dll
+D:\Git\FashionGo - full\FashionGo - full\Commons\obj\Debug\Commons.csproj.CopyComplete
+D:\Git\FashionGo - full\FashionGo - full\Commons\obj\Debug\Commons.dll
+D:\Git\FashionGo - full\FashionGo - full\Commons\obj\Debug\Commons.pdb
