@@ -123,10 +123,9 @@
                                         </div>
                                         <div class="eshop-product-price col-xs-6 col-sm-6">
                                             <p>
-                                                @if (item.Discount.Value > 0)
-                                                {
+                                                
                                                     <span class="eshop-base-price">@Html.FormatValue(item.Price, "{0:0,0}")đ</span>
-                                                }
+                                               
                                                 <span class="eshop-price">@Html.FormatValue(item.PriceAfter, "{0:0,0}")đ</span>
                                             </p>
                                         </div>
@@ -142,7 +141,7 @@
                                                     </span>
                                                 </span>
                                             </div>
-                                            <button id="add-to-cart-@item.Id" class="btn btn-primary" onclick="addToCart(@item.Id, 1, '@WebConfigurationManager.AppSettings["SiteName"].ToString()');" value="Thêm vào giỏ">
+                                            <button id="add-to-cart-@item.Id" class="btn btn-primary" onclick="flyToCart(@item.Id );" value="Thêm vào giỏ">
                                                 <i class="fa fa-shopping-cart">&nbsp;</i>&nbsp;Thêm vào giỏ
                                             </button>
                                         </div>

@@ -3925,6 +3925,8 @@
     <Content Include="Views\Cart\_MiniCart.cshtml" />
     <Content Include="Views\Shared\_LayouDetail.cshtml" />
     <Content Include="Views\Product\_SidebarDetails.cshtml" />
+    <Content Include="Views\Product\ThoiTrangNu.cshtml" />
+    <Content Include="Views\Product\_ThoiTrangNu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

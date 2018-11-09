@@ -17,6 +17,7 @@
 
         <div class="row outer-bottom-xs">
             <div class="col-md-7">
+              
                 <h3 class="block-title"><i class="fa fa-user" aria-hidden="true"></i> THÔNG TIN NGƯỜI NHẬN</h3>
                 <div class="block block-white  block-bordered">
 
@@ -52,8 +53,8 @@
                         <div class="form-group">
                             <div class="col-md-8">
                                 <label class="control-label">Họ và tên</label>
-                                    @Html.TextBoxFor(model => model.ReceiveName, new { @class = "form-control", placeholder = "Nhập tên người nhận hàng..." })
-                                    @Html.ValidationMessageFor(model => model.ReceiveName, "", new { @class = "text-danger" })
+                                @Html.TextBoxFor(model => model.ReceiveName, new { @class = "form-control", placeholder = "Nhập tên người nhận hàng..." })
+                                @Html.ValidationMessageFor(model => model.ReceiveName, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-md-4">
                                 <label class="control-label">Số điện thoại</label>
@@ -67,8 +68,8 @@
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <label class="control-label" for="Email">Địa chỉ Email</label>
-                                        @Html.TextBox("Email", null, new { @class = "form-control", Type = "email", placeholder = "Địa chỉ email có thực để nhận thông tin đơn hàng..." })
-                                        @Html.ValidationMessage("Email", "", new { @class = "text-danger" })
+                                    @Html.TextBox("Email", null, new { @class = "form-control", Type = "email", placeholder = "Địa chỉ email có thực để nhận thông tin đơn hàng..." })
+                                    @Html.ValidationMessage("Email", "", new { @class = "text-danger" })
                                 </div>
                             </div>
                         }
@@ -76,8 +77,8 @@
                         <div class="form-group">
                             <div class="col-md-12">
                                 <label class="control-label">Địa chỉ</label>
-                                    @Html.TextBoxFor(model => model.ReceiveAddress, new { @class = "form-control", placeholder = "Địa chỉ nhận hàng..." })
-                                    @Html.ValidationMessageFor(model => model.ReceiveAddress, "", new { @class = "text-danger" })
+                                @Html.TextBoxFor(model => model.ReceiveAddress, new { @class = "form-control", placeholder = "Địa chỉ nhận hàng..." })
+                                @Html.ValidationMessageFor(model => model.ReceiveAddress, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
@@ -172,7 +173,7 @@
                             </tr>
                             <tr class="text-right">
                                 <td colspan="2">Phí vận chuyển:</td>
-                                <td id="orderTransportCost" class="text-right">@Html.FormatValue(ShoppingCart.Cart.TransportCost, "{0:0,0}")đ</td>
+                                <td id="orderTransportCost" class="text-right">@Html.FormatValue(ShoppingCart.Cart.TransportCost, "{0:0,0}")đ </td>
                             </tr>
                             <tr class="text-right">
                                 <td colspan="2">Giảm giá: <span id="discountDescription">@Html.Raw(ShoppingCart.Cart.discountDescription)</span ></td >
@@ -291,7 +292,7 @@
             e.preventDefault();
             getTransport();
         });
-
+        
         //Lấy bảng nhà vận chuyển
         function getTransport() {
             var districtId = $('#DistrictId').val();

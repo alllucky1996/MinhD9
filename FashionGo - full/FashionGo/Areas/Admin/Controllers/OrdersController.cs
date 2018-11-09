@@ -8,13 +8,14 @@ using System.Web;
 using System.Web.Mvc;
 using FashionGo.Models.Entities;
 using FashionGo.Models;
+using System.Diagnostics;
 
 namespace FashionGo.Areas.Admin.Controllers
 {
     public class OrdersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        public ShoppingCart cart = ShoppingCart.Cart;
         // GET: Admin/Orders
         public ActionResult Index()
         {
@@ -36,7 +37,41 @@ namespace FashionGo.Areas.Admin.Controllers
             }
             return View(order);
         }
+        // GET: Admin/Orders/Validate/5
+        public ActionResult Validate(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Order order = db.Orders.Find(id);
+            if (order == null)
+            {
+                return HttpNotFound();
+            }
 
+            try
+            {
+                foreach (var d in order.OrderDetails)
+                {
+                    var p = d.Product;
+                    // update bỏ đang chờ bán
+                    // hoàn thành thì cho đang chừo về 0 và giảm số lượng đi
+
+                    p.Amount = p.Amount - p.Pending;
+                    p.Pending = 0;
+                }
+                order.StatusId = 6;
+                int result = db.SaveChanges();
+                if(result >0) return Json(new { success = true, message = "Đã hoàn thành đơn hàng của " + order.ReceiveName }, JsonRequestBehavior.AllowGet);
+                else return Json(new { success = true, message = "Không hoàn tất được đơn hàng của " + order.ReceiveName }, JsonRequestBehavior.AllowGet); 
+            }
+            catch (Exception ex)
+            {
+                Json(new { success = true, message = "Không hoàn tất được đơn hàng của " + order.ReceiveName }, JsonRequestBehavior.AllowGet);
+            }
+            return null ;
+        }
         // GET: Admin/Orders/Create
         public ActionResult Create()
         {

@@ -20,7 +20,8 @@ namespace FashionGo
             routes.MapRoute(name: "AddProductFavorite", url: "danh-dau-yeu-thich/{id}", defaults: new { controller = "Product", action = "AddToWishList", id = UrlParameter.Optional }, namespaces: new[] { "FashionGo.Controllers" } );
             routes.MapRoute(name: "ProductFavorite", url: "san-pham-yeu-thich", defaults: new { controller = "Product", action = "MyWishList", id = UrlParameter.Optional }, namespaces: new[] { "FashionGo.Controllers" });
             routes.MapRoute(name: "LastestProduct", url: "san-pham-moi", defaults: new { controller = "Product", action = "LastestProducts", Id = "Latest" }, namespaces: new[] { "FashionGo.Controllers" });
-            routes.MapRoute(name: "BestSalerProduct", url: "danh-muc-xu-huong-thoi-trang-2016", defaults: new { controller = "Product", action = "_BestSalerProducts", Id = "Best" },namespaces: new[] { "FashionGo.Controllers" });
+            routes.MapRoute(name: "BestSalerProduct", url: "danh-muc-xu-huong-thoi-trang-2018", defaults: new { controller = "Product", action = "_BestSalerProducts", Id = "Best" },namespaces: new[] { "FashionGo.Controllers" });
+            routes.MapRoute(name: "ThoiTrangNu", url: "danh-muc-thoi-trang-nu", defaults: new { controller = "Product", action = "_ThoiTrangNu", Id = "Best" }, namespaces: new[] { "FashionGo.Controllers" });
 
 
             //ShoppingCart
@@ -47,6 +48,9 @@ namespace FashionGo
 
             routes.MapRoute(name: "Default", url: "{controller}/{action}/{id}", defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }, namespaces: new[] { "FashionGo.Controllers" });
             routes.MapRoute( name: "404", url: "{*url}", defaults: new { controller = "Home", action = "NotFound", id = UrlParameter.Optional }, namespaces: new[] { "FashionGo.Controllers" });
+
+            // admin
+            routes.MapRoute(name: "ValidateOrder", url: "Admin/Orders/Validate/{id}", defaults: new { controller = "Orders", action = "Validate", id = UrlParameter.Optional }, namespaces: new[] { "FashionGo.Controllers" });
         }
     }
 }

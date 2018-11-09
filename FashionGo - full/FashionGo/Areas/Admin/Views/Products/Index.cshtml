@@ -70,7 +70,12 @@
                         </td>
                         
                         <td>
-                            @Html.DisplayFor(modelItem => item.Amount)
+                            @if (item.Amount > 0)
+                            {@Html.DisplayFor(modelItem => item.Amount)}
+                           else 
+                            {
+                                <span class="label-danger">Đã hết</span>
+                            }
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Price)

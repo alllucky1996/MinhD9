@@ -117,9 +117,10 @@
                 //Nếu số tiền lớn hơn 300k hoặc số lượng mua từ 3 sản phẩm trở lên thì miễn phí vận chuyển
                 if (Total > 300000 || Count > 2)
                 {
-                    cost = cost - 15000;
+                   // cost = cost - 15000;
+                    cost =  0;
                 }
-
+                
                 return cost < 0 ? 0 : cost;
             }
         }

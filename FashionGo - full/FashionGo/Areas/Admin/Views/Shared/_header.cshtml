@@ -180,7 +180,8 @@
                 {
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            @Html.GravatarImage(User.Identity.Name, new GravatarOptions { Size = 18, DefaultImageType = "wavatar", CssClass = "img-circle" })
+                            @*@Html.GravatarImage(User.Identity.Name, new GravatarOptions { Size = 18, DefaultImageType = "wavatar", CssClass = "img-circle" })*@
+                            <img class="img-circle" src="~/Uploads/images/logo/dung.jpg"/>
                             <span class="hidden-xs">@User.Identity.Name</span>
                         </a>
                         <ul class="dropdown-menu">

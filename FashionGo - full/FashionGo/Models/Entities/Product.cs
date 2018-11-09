@@ -112,6 +112,9 @@
         [Display(Name = "Từ khóa")]
         public string MetaKeyword { get; set; }
 
+        [Display(Name = "Đang chờ ")]
+        public int? Pending { get; set; }
+
         public virtual ApplicationUser User { get; set; }
 
         public virtual Manufact Manufact { get; set; }

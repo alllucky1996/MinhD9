@@ -132,7 +132,6 @@ namespace FashionGo.Controllers
                 // Bổ sung mặt hàng đã xem vào cookie
                 if(wishlist[Id.ToString()]==null)
                 {
-                    
                     wishlist.Values[Id.ToString()] = Id.ToString();
                      //Success(string.Format("<b><h4>{0}</h4></b> was add to wish list successfully.", ProductName.Name), true);
                 }
@@ -328,14 +327,26 @@ namespace FashionGo.Controllers
             var model = db.Products.Where(p => p.Actived == true).Take(10);
             return PartialView("Partials/_Special", model);
         }
-
-
-        //Download source code tại Sharecode.vn
+        
         public ActionResult Saleoff()
         {
             var model = db.Products.Where(p => p.Actived == true).Where(p => p.Discount > 0).Take(5);
             return PartialView("Partials/_Saleoff", model);
         }
 
+        // mới
+        public ActionResult ThoiTrangNu(int? page)
+        {
+            int pageSize = 20;
+            int pageNumber = (page ?? 1);
+            ViewBag.label = "Thời trang nữ";
+            var model = db.Products.Where(p => p.Actived == true && p.ProductCategory.CatId ==6).OrderByDescending(p => p.Views).ToList();
+            return View(model.ToPagedList(pageNumber, pageSize));
+        }
+        public ActionResult _ThoiTrangNu()
+        {
+            var bestSalers = db.Products.Where(p => p.Actived == true && p.ProductCategory.CatId == 6).OrderByDescending(p => p.Views).Take(5).ToList();
+            return PartialView(bestSalers);
+        }
     }
 }

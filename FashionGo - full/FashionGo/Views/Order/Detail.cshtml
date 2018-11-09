@@ -81,7 +81,10 @@
                     </tr>
                     <tr class="text-right">
                         <td colspan="4">Phí vận chuyển:</td>
-                        <td id="orderTransportCost" class="text-right">@Html.FormatValue(Model.Transport.Cost, "{0:0,0}")đ</td>
+                        @if (ViewBag.FreeShip!= true )
+                        {
+                            <td id="orderTransportCost" class="text-right">@Html.FormatValue(Model.Transport.Cost, "{0:0,0}")đ</td>
+                        }
                     </tr>
                     <tr class="text-right">
                         <td colspan="4">Giảm giá:</td>

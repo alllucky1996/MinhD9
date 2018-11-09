@@ -54,7 +54,7 @@
                                 <li class="item-108"><a href="@Url.RouteUrl("ShopingCart")"><i class="fa fa-shopping-bag"></i> Giỏ hàng</a></li>
                                 @if (Request.IsAuthenticated)
                                 {
-                                    <li class="item-107"><a href="@Url.RouteUrl("AccountManage")"><i class="fa fa-user"></i> Tài khoản</a></li>
+                                    <li class="item-107"><a href="@Url.RouteUrl("AccountLogin", new { returnUrl = "/Admin" })"><i class="fa fa-user"></i> Tài khoản</a></li>
                                 }
                             </ul>
                         </div>
