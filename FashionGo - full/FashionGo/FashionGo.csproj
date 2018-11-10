@@ -3811,6 +3811,11 @@
     <Content Include="Uploads\images\icon\images.png" />
     <Content Include="Uploads\images\icon\menu_icon_6.png" />
     <Content Include="Uploads\images\icon\voucher_icon.png" />
+    <Content Include="Uploads\images\tin-bai\banhang.jpg" />
+    <Content Include="Uploads\images\tin-bai\marketing-online-2016.jpg" />
+    <Content Include="Uploads\images\tin-bai\marketing.jpg" />
+    <Content Include="Uploads\images\tin-bai\tietkiem.jpg" />
+    <Content Include="Uploads\images\tin-bai\tuyen-dung-nhan-vien-kinh-doanh.jpg" />
     <Content Include="Uploads\images\tin-bai\tuyen-dung-nhan-vien-marketing.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

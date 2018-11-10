@@ -340,12 +340,15 @@ namespace FashionGo.Controllers
             int pageSize = 20;
             int pageNumber = (page ?? 1);
             ViewBag.label = "Thời trang nữ";
-            var model = db.Products.Where(p => p.Actived == true && p.ProductCategory.CatId ==6).OrderByDescending(p => p.Views).ToList();
+            var model = db.Products.Where(o=>o.ProductCategory.CatId!=7&& o.ProductCategory.CatId != 17 && o.ProductCategory.CatId != 18).ToList();
+           
             return View(model.ToPagedList(pageNumber, pageSize));
+          
         }
         public ActionResult _ThoiTrangNu()
         {
             var bestSalers = db.Products.Where(p => p.Actived == true && p.ProductCategory.CatId == 6).OrderByDescending(p => p.Views).Take(5).ToList();
+            ViewBag.CText = "Thời trang nữ";
             return PartialView(bestSalers);
         }
     }
