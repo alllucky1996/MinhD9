@@ -100,4 +100,34 @@
 {
     <script src="/Scripts/modules/mod_bt_login/js/jquery.simplemodal.js"></script>
     <script src="/Scripts/modules/mod_bt_login/js/default.js"></script>
+    
+
 }
+<script>
+    jQuery(document).ready(function ($) {
+
+        $('.dlike').click(function (e) {
+            var IdItem = $(this).attr("dung");
+            likeSP(IdItem);
+        });
+    });
+    function likeSP(IdItem) {
+        jQuery.ajax({
+            url: '@Url.RouteUrl("AddProductFavorite")'+'/',
+            type: 'post',
+            data: 'Id=' + IdItem,
+            dataType: 'json',
+            
+            success: function (json) {
+                if (json['success']) {
+                    jQuery.colorbox({
+                        overlayClose: true,
+                        opacity: 0.5,
+                        href: false,
+                        html: json['success']['message']
+                    });
+                }
+            }
+        });
+    }
+</script>

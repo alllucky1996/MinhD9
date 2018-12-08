@@ -26,5 +26,21 @@ namespace FashionGo.Areas.Admin.Controllers
 
             return PartialView("_Header");
         }
+        Double CurentMoth(int IdStatust)
+        {
+            var Orders = db.Orders.Where(o => o.OrderDate.Value.Month == DateTime.Now.Month
+                                            && o.OrderStatus.Id == IdStatust
+
+            ).ToList();
+            Double? count = 0;
+            foreach (var item in Orders)
+            {
+                if (item.TotalOrder > 0)
+                {
+                    count += item.TotalOrder == null ? 0 : item.TotalOrder;
+                }
+            }
+            return   Convert.ToDouble(count);
+        }
     }
 }

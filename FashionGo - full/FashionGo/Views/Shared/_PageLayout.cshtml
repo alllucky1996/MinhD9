@@ -18,10 +18,11 @@
     @RenderSection("HeaderScripts", false)
 
     @Html.Partial("Partials/_HeaderScripts")
-
+    
 </head>
 
 <body class="bd">
+    
     <div class="t3-wrapper">
         <!-- HEADER -->
         @Html.Action("Header", "Home")
@@ -44,6 +45,7 @@
         <!-- //FOOTER -->
         @Html.Partial("Partials/_ScrollToTop")
     </div>
+
 </body>
 @Scripts.Render("~/BootstrapValidator/jquery")
 @RenderSection("Scripts", false)

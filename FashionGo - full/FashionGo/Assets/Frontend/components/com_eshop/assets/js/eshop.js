@@ -146,9 +146,10 @@ function addToWishList(productId, site, lang)
 {
 	lang = typeof(lang) != 'undefined' ? lang : '';
 	jQuery.ajax({
-		url: site + 'index.php?option=com_eshop&task=wishlist.add' + lang,
+        //url: site + 'index.php?option=com_eshop&task=wishlist.add' + lang,
+        url: site,
 		type: 'post',
-		data: 'product_id=' + productId,
+		data: 'Id=' + productId,
 		dataType: 'json',
 		success: function(json) {
 			if (json['success']) {

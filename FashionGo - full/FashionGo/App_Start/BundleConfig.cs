@@ -92,6 +92,7 @@ namespace FashionGo
 
 
             bundles.Add(new ScriptBundle("~/Assets/Frontend/jquery").Include(
+                       // "~/Scripts/jquery-3.3.1.min.js",
                        "~/Scripts/jquery-1.10.2.min.js",
                        //"~/Scripts/media/jui/js/jquery-noconflict.js",
                        "~/Scripts/media/jui/js/jquery-migrate.min.js",

@@ -24,7 +24,7 @@
                                                 <div class="eshop-buttons">
                                                     <p>
                                                         @*<a class="button dlike" style="cursor: pointer;" onclick="addToWishList(@item.Id, '@WebConfigurationManager.AppSettings["SiteName"].ToString()')" title="Đánh dấu sản phẩm yêu thích"><i class="fa fa-heart"></i><span class="text-hide">Yêu thích</span></a>*@
-                                                        <a class="button dlike" style="cursor: pointer;" dung="@item.Id" title="Đánh dấu sản phẩm yêu thích"><i class="fa fa-heart"></i><span class="text-hide">Yêu thích</span></a>
+                                                        <a class="button dlike" style="cursor: pointer;" dung="@item.Id"  title="Đánh dấu sản phẩm yêu thích"><i class="fa fa-heart"></i><span class="text-hide">Yêu thích</span></a>
                                                         <a class="button" style="cursor: pointer;" href="@Url.RouteUrl("ProductDetails", new { slug = item.Name.ToAscii(), id = item.Id })" title="Xem chi tiết"><i class="fa fa-arrow-right"></i><span class="text-hide">Chi tiết</span></a>
                                                     </p>
                                                     <div class="eshop-cart-area">
@@ -66,28 +66,31 @@
         </div>
     </div>
 }
-    <script>
-        $(".dlike").on('click', function () {
+<script>
+    @*jQuery(document).ready(function ($) {
+       
+        $('.dlike').click(function (e) {
             var IdItem = $(this).attr("dung");
-        $.ajax({
-            type: 'POST',
-            url: '@Url.RouteUrl("AddProductFavorite")',
-            dataType: 'json',
-            data: { Id: IdItem },
-            success: function (result) {
-                if (result.success == true) {
-                    showNoty('Đã thích ', 'success', 'center', 5000);
-                }
-                else {
-                    showNoty(result.message, 'error', 'center', 5000);
-                }
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                showNoty('Đã xảy ra lỗi khi thực hiện yêu cầu của bạn. Vui lòng kiểm tra và thử lại!<br />Lỗi: ' + errorThrown, 'error', 'center', 5000);
-            },
-            complete: function (result) {
-                Metronic.unblockUI();
-            }
+            likeSP(IdItem);
         });
     });
-    </script>
+    function likeSP(IdItem) {
+        jQuery.ajax({
+            url: '@Url.RouteUrl("AddProductFavorite")'+'/',
+            type: 'post',
+            data: 'Id=' + IdItem,
+            dataType: 'json',
+            success: function (json) {
+                if (json['success']) {
+                    jQuery.colorbox({
+                        overlayClose: true,
+                        opacity: 0.5,
+                        href: false,
+                        html: json['success']['message']
+                    });
+                }
+            }
+        });
+    }*@
+    
+</script>

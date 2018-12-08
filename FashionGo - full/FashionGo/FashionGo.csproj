@@ -3523,6 +3523,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery.inflop.bootstrap.alert.js" />
     <Content Include="Scripts\jquery.inflop.bootstrap.alert.min.js" />
     <Content Include="Scripts\jquery.number.min.js" />

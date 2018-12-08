@@ -263,3 +263,30 @@ Eshop.updateStateList = function(countryId, stateInputId) {
 		list.length = i;
 	}
 }
+
+function likeSP(IdItem) {
+    jQuery.ajax({
+        url: '@Url.RouteUrl("AddProductFavorite")' + '/',
+        type: 'post',
+        data: 'Id=' + IdItem,
+        dataType: 'json',
+       
+        success: function (json) {
+            if (json['success']) {
+                jQuery.colorbox({
+                    overlayClose: true,
+                    opacity: 0.5,
+                    href: false,
+                    html: json['success']['message']
+                });
+            }
+        }
+    });
+}
+jQuery(document).ready(function ($) {
+
+    $('.dlike').click(function (e) {
+        var IdItem = $(this).attr("dung");
+        likeSP(IdItem);
+    });
+});

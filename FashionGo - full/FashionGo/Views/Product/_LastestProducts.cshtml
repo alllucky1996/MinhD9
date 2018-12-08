@@ -16,7 +16,7 @@
                             <div id="images-product-row" class="">
                                 @foreach (var item in Model)
                                 {
-                                    <div class="image">
+                                    <div class="image ">
                                         <a href="@Url.RouteUrl("ProductDetails", new { slug = item.Name.ToAscii(), id = item.Id })" title="@item.Name">
                                             <img id="product-image-@item.Id" class="image img-responsive" alt="@item.Name" src="@item.FeaturedImage">
                                         </a>

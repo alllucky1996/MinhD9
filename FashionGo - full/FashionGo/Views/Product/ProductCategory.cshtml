@@ -19,10 +19,11 @@
     <meta property="og:type" content="Product" />
     <meta property="og:title" content="@Html.Raw(category.MetaTitle)" />
     <meta property="og:description" content="@Html.Raw(category.MetaDescription)" />
-
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     @if ( ! string.IsNullOrEmpty(category.Banner) ){
         <meta property="og:image" content="@category.Banner.ResolveServerUrl()" />
     }
+
 }
 
 
@@ -56,10 +57,15 @@
     </div>
     <script src="~/Scripts/components/com_eshop/assets/js/jquery.cookie.js" type="text/javascript"></script>
     <script src="~/Scripts/components/com_eshop/assets/js/layout.js" type="text/javascript"></script>
+
     <script>
     jQuery(function ($) {
         $(document).ready(function () {
             changeLayout('grid');
+            $(".dlike").on('click', function () {
+                var IdItem = $(this).attr("dung");
+                likeSP(IdItem);
+            });
         });
     });
     </script>
@@ -125,7 +131,7 @@
 
                                     <div class="eshop-buttons">
                                         <p>
-                                            <a class="button" style="cursor: pointer;" onclick="addToWishList(@item.Id, '@WebConfigurationManager.AppSettings["SiteName"].ToString()')" title="Đánh dấu sản phẩm yêu thích"><i class="fa fa-heart"></i><span class="text-hide">Yêu thích</span></a>
+                                            <a class="button dlike" style="cursor: pointer;" dung="@item.Id" title="Đánh dấu sản phẩm yêu thích"><i class="fa fa-heart"></i><span class="text-hide">Yêu thích</span></a>
                                             <a class="button" style="cursor: pointer;" href="@Url.RouteUrl("ProductDetails", new { slug = item.Name.ToAscii(), id = item.Id })" title="Xem chi tiết"><i class="fa fa-arrow-right"></i><span class="text-hide">Chi tiết</span></a>
                                         </p>
 
@@ -153,7 +159,7 @@
                                         </div>
                                         <div class="eshop-product-price col-xs-6 col-sm-6">
                                             <p>
-                                                @if (item.Discount.Value > 0)
+                                                @if (item.Discount!= null && item.Discount.Value > 0)
                                                 {
                                                     <span class="eshop-base-price">@Html.FormatValue(item.Price, "{0:0,0}")đ</span>
                                                 }
@@ -177,7 +183,7 @@
                                             </button>
                                         </div>
                                         <p>
-                                            <a class="btn button" style="cursor: pointer;" onclick="addToWishList(@item.Id, '@WebConfigurationManager.AppSettings["SiteName"].ToString()')" title="Đánh dấu sản phẩm yêu thích"><i class="fa fa-heart"></i>Đánh dấu Yêu thích</a>
+                                            <a class="btn button dlike" style="cursor: pointer;" dung="@item.Id" title="Đánh dấu sản phẩm yêu thích"><i class="fa fa-heart"></i>Đánh dấu Yêu thích</a>
                                             <a class="btn button" style="cursor: pointer;" href="@Url.RouteUrl("ProductDetails", new { slug = item.Name.ToAscii(), id = item.Id })" title="Xem chi tiết">Chi tiết <i class="fa fa-arrow-right"></i></a>
                                         </p>
                                     </div>
@@ -201,5 +207,13 @@
             </div>
         </div>
     </div>
+    <script>
+        jQuery(document).ready(function ($) {
 
+            $('.dlike').click(function (e) {
+                var IdItem = $(this).attr("dung");
+                likeSP(IdItem);
+            });
+        });
+    </script>
 </div>
