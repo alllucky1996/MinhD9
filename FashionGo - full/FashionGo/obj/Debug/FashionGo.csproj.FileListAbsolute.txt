@@ -80,10 +80,10 @@ D:\Git\FashionGo - full\FashionGo - full\FashionGo\bin\Microsoft.Owin.Security.G
 D:\Git\FashionGo - full\FashionGo - full\FashionGo\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Git\FashionGo - full\FashionGo - full\FashionGo\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Git\FashionGo - full\FashionGo - full\FashionGo\bin\vi\Commons.resources.dll
+D:\Git\FashionGo - full\FashionGo - full\FashionGo\obj\Debug\FashionGo.csprojAssemblyReference.cache
 D:\Git\FashionGo - full\FashionGo - full\FashionGo\obj\Debug\FashionGo.Migrations.new98.resources
 D:\Git\FashionGo - full\FashionGo - full\FashionGo\obj\Debug\FashionGo.csproj.GenerateResource.cache
 D:\Git\FashionGo - full\FashionGo - full\FashionGo\obj\Debug\FashionGo.csproj.CoreCompileInputs.cache
 D:\Git\FashionGo - full\FashionGo - full\FashionGo\obj\Debug\FashionGo.csproj.CopyComplete
 D:\Git\FashionGo - full\FashionGo - full\FashionGo\obj\Debug\FashionGo.dll
 D:\Git\FashionGo - full\FashionGo - full\FashionGo\obj\Debug\FashionGo.pdb
-D:\Git\FashionGo - full\FashionGo - full\FashionGo\obj\Debug\FashionGo.csprojAssemblyReference.cache

@@ -335,16 +335,26 @@ namespace FashionGo.Controllers
         }
 
         // mới
-        public ActionResult ThoiTrangNu(int? page)
+        
+        public ActionResult ThoiTrangNu(int style,int? page)
         {
-            int pageSize = 20;
+            int pageSize = 15;// sử dụng page size  chi hết cho 3 để k bị lỗi theme
             int pageNumber = (page ?? 1);
-            ViewBag.label = "Thời trang nữ";
-            var model = db.Products.Where(o=>o.ProductCategory.CatId!=7&& o.ProductCategory.CatId != 17 && o.ProductCategory.CatId != 18).ToList();
-           
+            List<Product> model = new List<Product>();
+            if(style == 0)
+            {
+                ViewBag.label = "Thời trang nữ";
+                model = db.Products.Where(o => o.CatId != 7 && o.CatId != 17 && o.CatId != 18).ToList();
+               
+            }
+            else
+            {
+                ViewBag.label = "Thời trang Nam";
+                 model = db.Products.Where(o => o.CatId == 7 || o.CatId == 17 || o.CatId == 18).ToList();
+            }
             return View(model.ToPagedList(pageNumber, pageSize));
-          
         }
+      
         public ActionResult _ThoiTrangNu()
         {
             var bestSalers = db.Products.Where(p => p.Actived == true && p.ProductCategory.CatId == 6).OrderByDescending(p => p.Views).Take(5).ToList();

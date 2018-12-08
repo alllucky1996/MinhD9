@@ -21,8 +21,8 @@ namespace FashionGo
             routes.MapRoute(name: "ProductFavorite", url: "san-pham-yeu-thich", defaults: new { controller = "Product", action = "MyWishList", id = UrlParameter.Optional }, namespaces: new[] { "FashionGo.Controllers" });
             routes.MapRoute(name: "LastestProduct", url: "san-pham-moi", defaults: new { controller = "Product", action = "LastestProducts", Id = "Latest" }, namespaces: new[] { "FashionGo.Controllers" });
             routes.MapRoute(name: "BestSalerProduct", url: "danh-muc-xu-huong-thoi-trang-2018", defaults: new { controller = "Product", action = "_BestSalerProducts", Id = "Best" },namespaces: new[] { "FashionGo.Controllers" });
-            routes.MapRoute(name: "ThoiTrangNu", url: "danh-muc-thoi-trang-nu", defaults: new { controller = "Product", action = "ThoiTrangNu", Id = "Best" }, namespaces: new[] { "FashionGo.Controllers" });
-
+            routes.MapRoute(name: "ThoiTrangNu", url: "danh-muc-thoi-trang-nu", defaults: new { controller = "Product", action = "ThoiTrangNu", style = 0,Id = "Best" }, namespaces: new[] { "FashionGo.Controllers" });
+            routes.MapRoute(name: "ThoiTrangNam", url: "danh-muc-thoi-trang-nam", defaults: new { controller = "Product", action = "ThoiTrangNu", style = 1, Id = "Best" }, namespaces: new[] { "FashionGo.Controllers" });
 
             //ShoppingCart
             routes.MapRoute(name: "ShopingCart", url: "gio-hang", defaults: new { controller = "Cart", action = "Index", Id = UrlParameter.Optional }, namespaces: new[] { "FashionGo.Controllers" });

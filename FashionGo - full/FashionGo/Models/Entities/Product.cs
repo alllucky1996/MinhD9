@@ -85,19 +85,19 @@
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? CreateDate { get; set; }
 
-        [Display(Name = "Khuyến mãi cộng thêm")]
+        [Display(Name = "Khuyến mãi")]
         public double? ExtraDiscount { get; set; }
 
         [Display(Name="Sản phẩm mới")]
         public bool? IsNew { get; set; }
 
-        [Display(Name = "Đánh dấu nổi bật")]
+        [Display(Name = "Đánh dấu")]
         public bool? IsFeatured { get; set; }
 
-        [Display(Name = "Sản phẩm bán chạy")]
+        [Display(Name = "Bán chạy")]
         public bool? IsSpecial  { get; set; }
 
-        [Display(Name = "Kích hoạt sản phẩm")]
+        [Display(Name = "Kích hoạt")]
         public bool? Actived { get; set; }
 
         [Display(Name="Lượt xem")]
