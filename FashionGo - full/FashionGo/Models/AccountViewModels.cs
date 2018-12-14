@@ -115,4 +115,47 @@ namespace FashionGo.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+    public class UserViewModel
+    {
+        
+        [Display(Name = "Id")]
+        public string Id { get; set; }
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
+        [Display(Name = "PhoneNumber")]
+        public string PhoneNumber { get; set; }
+        [Display(Name = "Địa chỉ")]
+        public string Address { get; set; }
+        [Display(Name = "họ và tên")]
+        public string FullName { get; set; }
+
+        public UserViewModel(ApplicationUser u)
+        {
+            this.Address = u.Address;
+            this.Email = u.Email;
+            this.Id = u.Id;
+            this.PhoneNumber = u.PhoneNumber;
+            this.UserName = u.UserName;
+            this.FullName = u.FullName;
+        }
+        public UserViewModel()
+        {
+        }
+
+    }
+    public class RoleViewModel
+    {
+        [Required]
+        [Display(Name = "Id")]
+        public string Id { get; set; }
+        [EmailAddress]
+        [Display(Name = "Tên")]
+        public string Name { get; set; }
+        
+
+    }
 }

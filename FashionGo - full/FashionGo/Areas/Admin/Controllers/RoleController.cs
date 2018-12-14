@@ -8,19 +8,20 @@ using System.Web;
 using System.Web.Mvc;
 using FashionGo.Models;
 using FashionGo.Models.Entities;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace FashionGo.Areas.Admin.Controllers
 {
-    public class UserController : AdminController
+    public class RoleController : AdminController
     {
         // GET: Admin/Categories
         public ActionResult Index()
         {
-            var Users = db.Users;
-            var model = new List<UserViewModel>();
-            foreach (var user in Users)
+            var role = db.Roles;
+            var model = new List<RoleViewModel>();
+            foreach (var item in role)
             {
-                var u = new UserViewModel(user);
+                var u = new RoleViewModel() {Id = item.Id, Name = item.Name };
                 model.Add(u);
             }
             return View(model);
@@ -33,7 +34,7 @@ namespace FashionGo.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var user = db.Users.Find(id);
+            var user = db.Roles.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -52,13 +53,12 @@ namespace FashionGo.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( UserViewModel User)
+        public ActionResult Create( RoleViewModel model)
         {
           
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = User.UserName, Email = User.Email, Address = User.Address, FullName = User.FullName,PhoneNumber = User.PhoneNumber};
-                var result = db.Users.Add(user);
+                var result = db.Roles.Add(new Microsoft.AspNet.Identity.EntityFramework.IdentityRole() { Id = model.Id, Name = model.Name});
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -75,13 +75,13 @@ namespace FashionGo.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var item = db.Users.Find(id);
+            var item = db.Roles.Find(id);
             if (item == null)
             {
                 return HttpNotFound();
             }
-            var model = new UserViewModel(item);
-            return View(model);
+            
+            return View(item);
         }
 
         // POST: Admin/Categories/Edit/5
@@ -89,21 +89,17 @@ namespace FashionGo.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(UserViewModel user)
+        public ActionResult Edit(RoleViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var item = db.Users.Where(u => u.Id == user.Id).FirstOrDefault();
-                item.FullName = user.FullName;
-                item.Email = user.Email;
-                item.Address = user.Address;
-                item.PhoneNumber = user.PhoneNumber;
-               db.Entry(item).State = EntityState.Modified;
+               var item= db.Roles.Where(o => o.Id == model.Id).FirstOrDefault();
+                db.Entry(item).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
            
-            return View(user);
+            return View(model);
         }
 
         // GET: Admin/Categories/Delete/5
@@ -113,8 +109,8 @@ namespace FashionGo.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var user = db.Users.Find(id);
-            var itemview = new UserViewModel(user);
+            var user = db.Roles.Find(id);
+            var itemview = new RoleViewModel() { Id = user.Id,Name = user.Name};
             if (user == null)
             {
                 return HttpNotFound();
@@ -127,8 +123,8 @@ namespace FashionGo.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            var category = db.Users.Find(id);
-            db.Users.Remove(category);
+            var category = db.Roles.Find(id);
+            db.Roles.Remove(category);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

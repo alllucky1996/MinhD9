@@ -6,7 +6,7 @@
 }
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+   @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-success" })
 </p>
 
 <div class="box">
@@ -64,9 +64,9 @@
                         @Html.DisplayFor(modelItem => item.DisplayOrder)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.CatId }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.CatId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.CatId })
+                        @Html.ActionLink("Xem", "Details", new { id = item.CatId }, new { @class = "btn btn-xs btn-primary" })
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.CatId }, new { @class = "btn btn-xs btn-warning" })
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.CatId }, new { @class = "btn btn-xs btn-danger", onclick = "return confirm('Bạn có chắc muốn xóa?')" })
                     </td>
                 </tr>
             }

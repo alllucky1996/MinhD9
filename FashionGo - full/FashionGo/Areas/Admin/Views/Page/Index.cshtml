@@ -10,7 +10,7 @@
         <h3 class="box-title">@ViewBag.Title</h3>
         <div class="box-tools">
             <p>
-                @Html.ActionLink("Create New", "Create")
+               @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-success" })
             </p>
         </div>
     </div><!-- /.box-header -->
@@ -37,9 +37,9 @@
                         @Html.DisplayFor(modelItem => item.Slug)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        @Html.ActionLink("Xem", "Details", new { id = item.Id }, new { @class = "btn btn-xs btn-primary" })
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.Id }, new { @class = "btn btn-xs btn-warning" })
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.Id }, new { @class = "btn btn-xs btn-danger", onclick = "return confirm('Bạn có chắc muốn xóa?')" })
                     </td>
                 </tr>
             }

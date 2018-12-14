@@ -217,5 +217,6 @@ namespace FashionGo.Models
             return new ApplicationDbContext();
         }
 
+        public System.Data.Entity.DbSet<FashionGo.Models.UserViewModel> UserViewModels { get; set; }
     }
 }
