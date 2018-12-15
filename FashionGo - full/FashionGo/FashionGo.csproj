@@ -224,6 +224,7 @@
     <Compile Include="Areas\Admin\Controllers\TransportsController.cs" />
     <Compile Include="Areas\Admin\Controllers\TransportTypesController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CapQuyenController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Controllers\BannerAdsController.cs" />
     <Compile Include="Controllers\MenuController.cs" />

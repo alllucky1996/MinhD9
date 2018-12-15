@@ -148,12 +148,16 @@ namespace FashionGo.Controllers
                 ViewBag.WishList = db.Products
                     .Where(p => keys.Contains(p.Id));
                 ViewBag.Count = wishlist.Values.Count;
+                var info = new { Count = wishlist.Values.Count };
+                return Json(info, JsonRequestBehavior.AllowGet);
             }
             catch
             {
 
             }
             return RedirectToAction("Index", "Home");
+           
+          
         }
         public ActionResult MyWishList()
         {

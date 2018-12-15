@@ -112,22 +112,47 @@
         });
     });
     function likeSP(IdItem) {
+        var ty = jQuery("#addToCart").closest('.product').find('#' + IdItem);
+        var img = jQuery("#product-image-" + IdItem);
+        quatity = jQuery('#quantity_' + IdItem).val();
+        if (quatity == 'undefined' || quatity == null) {
+            quatity = 1;
+        }
         jQuery.ajax({
-            url: '@Url.RouteUrl("AddProductFavorite")'+'/',
+            url: '@Url.RouteUrl("AddProductFavorite")' + '/',
             type: 'post',
             data: 'Id=' + IdItem,
             dataType: 'json',
-            
-            success: function (json) {
-                if (json['success']) {
-                    jQuery.colorbox({
-                        overlayClose: true,
-                        opacity: 0.5,
-                        href: false,
-                        html: json['success']['message']
-                    });
-                }
+            beforeSend: function () {
+                jQuery('.add-to-cart').attr('disabled', true);
+                jQuery('.add-to-cart').after('<span class="wait">&nbsp;<img src="Assets/Frontend/components/com_eshop/assets/images/loading.gif" /></span>');
+            },
+            complete: function () {
+                jQuery('.add-to-cart').attr('disabled', false);
+                jQuery('.wait').remove();
+            },
+            success: function (result) {
+                //alert(result.Count);
+                jQuery("#Dlove-total").text(" (" + result.Count + ")");
             }
-        });
-    }
+        }).done(function (response) {
+            //Load giỏ hàng
+            jQuery("#cart-item").load('@Url.RouteUrl("AddProductFavorite")' + '/')
+
+            flyToElement(jQuery(img), jQuery('#eshop-cart'));
+
+            jQuery("html, body").animate({ scrollTop: 0 }, 2000);
+
+            //Mở giỏ hàng
+            //jQuery('.eshop-content').slideToggle();
+
+            //Đóng giỏ hàng sau 8s
+            setTimeout(function () {
+                //jQuery('.eshop-content').hide();
+                }, 8000);
+
+            }).fail(function () {
+                alert("fail");
+            });
+        };
 </script>
