@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<FashionGo.Models.Entities.Product>
-@{ 
+@{
     var rd = new Random();
 }
+
 <div class="t3-module module " id="Mod101">
     <div class="module-inner">
         <h3 class="module-title "><span>Sản phẩm bán chạy</span></h3><div class="module-ct">
@@ -26,7 +27,7 @@
                                                     @item.Name
                                                 </a>
                                             </h4>
-                                            
+
                                             @if (item.Discount.Value > 0)
                                             {
                                                 <span class="eshop-base-price">@Html.FormatValue(item.Price, "{0:0,0}")đ</span>

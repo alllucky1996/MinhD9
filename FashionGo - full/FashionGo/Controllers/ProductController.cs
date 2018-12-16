@@ -212,8 +212,9 @@ namespace FashionGo.Controllers
 
         public ActionResult BestSaleProducts(int? page)
         {
-            int pageSize = 20;
-            int pageNumber = (page ?? 1);
+            int pageNumber = page == null ? 1 : (int)page; 
+            int pageSize = 15;
+        //   = (page ?? 1);
             ViewBag.label = "Xu hướng thời trang 2018";
             var model = db.Products.Where(p => p.Actived == true).OrderByDescending(p => p.Views).ToList();
             return View(model.ToPagedList(pageNumber, pageSize));

@@ -123,11 +123,15 @@
                                             </span>
                                         </div>
                                         <div class="eshop-product-price col-xs-6 col-sm-6">
-                                            <p>
-                                                @if (item.Discount.Value > 0)
+                                            @*<p>
+                                                @if (item.Discount!= null && item.Discount.Value > 0)
                                                 {
                                                     <span class="eshop-base-price">@Html.FormatValue(item.Price, "{0:0,0}")đ</span>
                                                 }
+                                                <span class="eshop-sale-price">@Html.FormatValue(item.PriceAfter, "{0:0,0}")đ</span>
+                                            </p>*@
+                                            <p>
+                                                <span class="eshop-base-price">@Html.FormatValue(item.Price, "{0:0,0}")đ</span>
                                                 <span class="eshop-sale-price">@Html.FormatValue(item.PriceAfter, "{0:0,0}")đ</span>
                                             </p>
                                         </div>
