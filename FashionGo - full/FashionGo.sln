@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FashionGo", "FashionGo\Fash
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commons", "Commons\Commons.csproj", "{AA8B446E-8153-48E7-8F6D-1666605B7684}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassHelper", "PassHelper\PassHelper.csproj", "{4637C9D7-2696-465B-B6A7-455FFE6F8BFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AA8B446E-8153-48E7-8F6D-1666605B7684}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA8B446E-8153-48E7-8F6D-1666605B7684}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA8B446E-8153-48E7-8F6D-1666605B7684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4637C9D7-2696-465B-B6A7-455FFE6F8BFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4637C9D7-2696-465B-B6A7-455FFE6F8BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4637C9D7-2696-465B-B6A7-455FFE6F8BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4637C9D7-2696-465B-B6A7-455FFE6F8BFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

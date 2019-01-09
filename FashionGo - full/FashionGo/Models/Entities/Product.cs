@@ -20,7 +20,7 @@
         [Key]
         public int Id { get; set; }
 
-        [Display(Name="Danh mục sp")]
+        [Display(Name = "Danh mục sp")]
         public int? CatId { get; set; }
 
         [StringLength(255)]
@@ -49,8 +49,24 @@
         [Display(Name = "Chi tiết")]
         public string Detail { get; set; }
 
+        [Display(Name = "Số lượng Size S")]
+        public int? S { get; set; }
+        [Display(Name = " Số lượng Size M")]
+        public int? M { get; set; }
+        [Display(Name = " Số lượng Size L")]
+        public int? L { get; set; }
+        [Display(Name = "Số lượng  Size XL")]
+        public int? XL { get; set; }
+
         [Display(Name = "Số lượng")]
         public int? Amount { get; set; }
+
+        [Display(Name = "Số lượng")]
+        [NotMapped]
+        public int? Tong { get {
+
+                return (((S == null ? 0 : S) + (L == null ? 0 : L) + (M == null ? 0 : M) + (XL == null ? 0 : XL)));
+            } }
 
         [Display(Name = "Kiểu SP")]
         public int? TypeId { get; set; }
@@ -88,19 +104,19 @@
         [Display(Name = "Khuyến mãi")]
         public double? ExtraDiscount { get; set; }
 
-        [Display(Name="Sản phẩm mới")]
+        [Display(Name = "Sản phẩm mới")]
         public bool? IsNew { get; set; }
 
         [Display(Name = "Đánh dấu")]
         public bool? IsFeatured { get; set; }
 
         [Display(Name = "Bán chạy")]
-        public bool? IsSpecial  { get; set; }
+        public bool? IsSpecial { get; set; }
 
         [Display(Name = "Kích hoạt")]
         public bool? Actived { get; set; }
 
-        [Display(Name="Lượt xem")]
+        [Display(Name = "Lượt xem")]
         public int Views { get; set; }
 
         [Display(Name = "Tiêu đề")]
@@ -114,6 +130,14 @@
 
         [Display(Name = "Đang chờ ")]
         public int? Pending { get; set; }
+        [Display(Name = "Đang chờ S")]
+        public int? PendingS { get; set; }
+        [Display(Name = "Đang chờ M")]
+        public int? PendingM { get; set; }
+        [Display(Name = "Đang chờ L")]
+        public int? PendingL { get; set; }
+        [Display(Name = "Đang chờ XL")]
+        public int? PendingXL { get; set; }
 
         public virtual ApplicationUser User { get; set; }
 
@@ -129,7 +153,7 @@
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductMeta> ProductMetas { get; set; }
 
-        public virtual ICollection<Order> Orders  { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
 
     }
 }

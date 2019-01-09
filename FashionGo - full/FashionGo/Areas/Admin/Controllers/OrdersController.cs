@@ -58,8 +58,12 @@ namespace FashionGo.Areas.Admin.Controllers
                     // update bỏ đang chờ bán
                     // hoàn thành thì cho đang chừo về 0 và giảm số lượng đi
 
-                    p.Amount = p.Amount - p.Pending;
-                    p.Pending = 0;
+                    //p.Amount = p.Amount - p.Pending;
+                    //p.Pending = 0;
+                    p.S = p.S - p.PendingS; p.PendingS = 0;
+                    p.S = p.M - p.PendingM; p.PendingM = 0;
+                    p.S = p.L - p.PendingL; p.PendingL = 0;
+                    p.S = p.XL - p.PendingXL; p.PendingXL = 0;
                 }
                 order.StatusId = 6;
                 int result = db.SaveChanges();

@@ -28,6 +28,14 @@
 
         [Display(Name = "Số lượng")]
         public int? Amount { get; set; }
+        [Display(Name = "Số lượng S")]
+        public int? S { get; set; }
+        [Display(Name = "Số lượng M")]
+        public int? M { get; set; }
+        [Display(Name = "Số lượng L")]
+        public int? L { get; set; }
+        [Display(Name = "Số lượng XL")]
+        public int? XL { get; set; }
 
         [Column(TypeName = "ntext")]
         [Display(Name = "Ghi chú")]
@@ -36,5 +44,26 @@
         public virtual Order Order { get; set; } 
 
         public virtual Product Product { get; set; }
+        [NotMapped]
+        public string SoLuong { get
+            {
+                string sl = "";
+                if (S == null)
+                {
+                    if (M == null)
+                    {
+                        if (L == null)
+                        {
+                            if (XL == null) return "";
+                             sl+="XL:"+XL.ToString();
+                        }
+                        sl += "L:" + L.ToString();
+                    }
+                    sl += "M:" + M.ToString();
+                }
+                sl += "S:" + S.ToString();
+                return sl;
+            }
+        }
     }
 }

@@ -1,5 +1,10 @@
 ﻿@model IEnumerable<FashionGo.Models.Entities.Product>
 @using FashionGo.Models
+@using Commons
+@{ 
+    List<DonHang> list = new List<DonHang>();
+}
+
 
 @if (!Model.Any())
 {
@@ -15,7 +20,7 @@ else
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
+                    <tr >
                         <td class="eshop-image" width="25%">
                             <h4 class="eshop-product-title">
                                 <a href="@Url.RouteUrl("ProductDetails", new { id = item.Id, slug = item.Name.ToAscii() })">
@@ -28,8 +33,10 @@ else
                                 @item.Name
                             </a>
                         </td>
+                        
                         <td class="eshop-quantity">
-                            @item.Amount&nbsp;x
+                            @*@item.Amount&nbsp;x*@
+                            <span>@(item.Tong) X</span>
                         </td>
                         <td class="eshop-total">
                             @Html.FormatValue(item.PriceAfter, "{0:0,0}")đ
@@ -60,7 +67,8 @@ else
     </div>
     <div class="eshop-checkout clearfix">
         <a class="btn btn-default pull-left" href="@Url.RouteUrl("ShopingCart")">Xem giỏ hàng</a>
-        <a href="@Url.RouteUrl("Checkout")" class="btn btn-primary pull-right"><i class="fa fa-cart-arrow-down"></i> Đặt Hàng</a>
+        <a class="btn btn-primary pull-right DatHang" href="@Url.RouteUrl("ShopingCart")"><i class="fa fa-cart-arrow-down"></i> Đặt Hàng</a>
+      
     </div>
     
 }

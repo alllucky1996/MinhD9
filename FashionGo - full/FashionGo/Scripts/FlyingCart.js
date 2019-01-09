@@ -4,7 +4,7 @@ jQuery(function ($) {
     $("ul#productTab li a").on('shown.bs.tab', function (e) {
         var isTab = $(this).attr('href');
         var reviewTab = $('#review-tab').val();
-        if (isTab == '#reviews' && reviewTab == 0) {
+        if (isTab === '#reviews' && reviewTab === 0) {
             $('#review-tab').val(1);
             loadReviewPagination();
         }
@@ -26,59 +26,37 @@ jQuery(function ($) {
 
 
     jQuery(function ($) {
-        $(document).delegate(".quantity, .spquantity", "change", function () {
-            pid = $(this).attr("data-id");
-            qty = $(this).val();
-            $.ajax({
-                url: "/Cart/Update",
-                data: { id: pid, quantity: qty },
-                success: function (response) {
-                    $("#eshop-cart-total").text($.number(response.Count));
-                    $("#Amount-" + pid).text($.number(response.Amount));
-                    $(".nn-cart-total").text($.number(response.Total));
-                    $("#cart-item").load("/Cart/_PartialCart");
-                },
-                complete: function () {
-                    updateOrderSummary();
-                }
-            });
-        });
+        //$(document).delegate(".quantity", "change", function () {
+        //    pid = $(this).attr("data-id");
+        //    qty = $(this).val();
+        //    s = $(this).attr("Size");
+        //    $.ajax({
+        //        url: "/Cart/Update",
+        //        data: { id: pid, quantity: qty, s=qty },
+        //        success: function (response) {
+        //            $("#eshop-cart-total").text($.number(response.Count));
+        //            $("#Amount-" + pid).text($.number(response.Amount));
+        //            $(".nn-cart-total").text($.number(response.Total));
+        //            $("#cart-item").load("/Cart/_PartialCart");
+        //        },
+        //        complete: function () {
+        //            updateOrderSummary();
+        //        }
+        //    });
+        //});
     });
 
 
 });
 
-function deleteFromCart(pid) {
-    var tr = jQuery(".row-" + pid);
-    jQuery.ajax({
-        url: "/Cart/Remove",
-        data: { id: pid },
-        beforeSend: function () {
-            jQuery('.wait').html('<img src="Assets/Frontend/components/com_eshop/assets/images/loading.gif" alt="" />');
-        },
-        success: function (response) {
-            jQuery('.wait').html('');
-            jQuery("#eshop-cart-total").text(response.Count);
 
-            jQuery("#cart-item").load("/Cart/_PartialCart");
-            if (tr.length) {
-                tr.remove();
-            }
-            //tr.hide(500);
-        },
-        complete: function () {
-            updateOrderSummary();
-        }
-    });
-    return false;
-}
 
 function flyToCart(pid) {
 
     var ty = jQuery("#addToCart").closest('.product').find('#' + pid);
     var img = jQuery("#product-image-" + pid);
     quatity = jQuery('#quantity_' + pid).val();
-    if (quatity == 'undefined' || quatity == null) {
+    if (quatity === 'undefined' || quatity === null) {
         quatity = 1;
     }
 
@@ -86,7 +64,7 @@ function flyToCart(pid) {
         type: 'GET',
         dataType: 'json',
         url: 'Cart/Add',
-        data: { id: pid, quatity: quatity },
+        data: { id: pid, quatity: 1 },
         beforeSend: function () {
             jQuery('.add-to-cart').attr('disabled', true);
             jQuery('.add-to-cart').after('<span class="wait">&nbsp;<img src="Assets/Frontend/components/com_eshop/assets/images/loading.gif" /></span>');
@@ -121,7 +99,6 @@ function flyToCart(pid) {
 
     return false;
 }
-
 
 function updateOrderSummary() {
 
@@ -178,7 +155,7 @@ function flyToElement(flyer, flyingTo, callBack /*callback is optional*/) {
             jQuery(flyingTo).fadeIn('fast', function () {
                 jQuery(flyerClone).fadeOut('fast', function () {
                     jQuery(flyerClone).remove();
-                    if (callBack != null) {
+                    if (callBack !== null) {
                         callBack.apply(func);
                     }
                 });
@@ -224,7 +201,7 @@ function flyFromElement(flyer, flyingTo, callBack /*callback is optional*/) {
         jQuery(flyerClone).remove();
         jQuery(flyer).fadeOut('fast', function () {
             jQuery(flyer).fadeIn('fast', function () {
-                if (callBack != null) {
+                if (callBack !== null) {
                     callBack.apply(func);
                 }
             });

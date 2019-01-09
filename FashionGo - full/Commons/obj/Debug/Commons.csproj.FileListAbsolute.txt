@@ -107,3 +107,4 @@ D:\Git\FashionGo - full\FashionGo - full\Commons\obj\Debug\vi\Commons.resources.
 D:\Git\FashionGo - full\FashionGo - full\Commons\obj\Debug\Commons.csproj.CopyComplete
 D:\Git\FashionGo - full\FashionGo - full\Commons\obj\Debug\Commons.dll
 D:\Git\FashionGo - full\FashionGo - full\Commons\obj\Debug\Commons.pdb
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\PassHelper.dll
