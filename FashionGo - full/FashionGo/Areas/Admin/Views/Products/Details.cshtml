@@ -1,5 +1,4 @@
-﻿@model Common.Models.Product
-
+﻿@model FashionGo.Models.Entities.Product
 @{
     ViewBag.Title = "Details";
     Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
@@ -70,7 +69,30 @@
         <dt>
             @Html.DisplayNameFor(model => model.Amount)
         </dt>
-
+        <dt>
+            @Html.DisplayNameFor(model => model.S)
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.S)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.M)
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.M)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.L)
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.L)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.XL)
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.XL)
+        </dt>
         <dd>
             @Html.DisplayFor(model => model.Amount)
         </dd>
@@ -151,5 +173,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+     @Html.ActionLink("<<Trở lại", "Index",null, new { @class = "btn btn-xs btn-default" })
 </p>

@@ -73,96 +73,104 @@
                     var clearfixDivEnd = "</div>";
                     var stt = 1;
                 }
-                @foreach (var item in Model)
+                @if (Model != null)
                 {
-                    if (stt % 3 == 1)
+                    foreach (var item in Model)
                     {
-                        @Html.Raw(clearfixDivStart)
-                    }
+                        if (stt % 3 == 1)
+                        {
+                            @Html.Raw(clearfixDivStart)
+                        }
 
-                    <div class="span4 ajax-block-product spanbox clearfix">
-                        <div class="row">
-                            <div class="eshop-wrap-image col-md-4">
-                                <div class="eshop-image-block">
-                                    <div class="image">
-                                        <a href="@Url.RouteUrl("ProductDetails", new { slug = item.Name.ToAscii(), id = item.Id })" title="@item.Name" class="product-image">
-                                            <img id="product-image-@item.Id" style="width: 100%" src="@item.FeaturedImage" title="@item.Name" alt="@item.Name">
-                                        </a>
-                                        <span class="overlay-background-color">&nbsp;</span>
-                                    </div>
+                        <div class="span4 ajax-block-product spanbox clearfix">
+                            <div class="row">
+                                <div class="eshop-wrap-image col-md-4">
+                                    <div class="eshop-image-block">
+                                        <div class="image">
+                                            <a href="@Url.RouteUrl("ProductDetails", new { slug = item.Name.ToAscii(), id = item.Id })" title="@item.Name" class="product-image">
+                                                <img id="product-image-@item.Id" style="width: 100%" src="@item.FeaturedImage" title="@item.Name" alt="@item.Name">
+                                            </a>
+                                            <span class="overlay-background-color">&nbsp;</span>
+                                        </div>
 
-                                    <div class="eshop-buttons">
-                                        <p>
-                                            <a class="button" style="cursor: pointer;" onclick="addToWishList(@item.Id, '@WebConfigurationManager.AppSettings["SiteName"].ToString()')" title="Đánh dấu sản phẩm yêu thích"><i class="fa fa-heart"></i><span class="text-hide">Yêu thích</span></a>
-                                            <a class="button" style="cursor: pointer;" href="@Url.RouteUrl("ProductDetails", new { slug = item.Name.ToAscii(), id = item.Id })" title="Xem chi tiết"><i class="fa fa-arrow-right"></i><span class="text-hide">Chi tiết</span></a>
-                                        </p>
+                                        <div class="eshop-buttons">
+                                            <p>
+                                                <a class="button" style="cursor: pointer;" onclick="addToWishList(@item.Id, '@WebConfigurationManager.AppSettings["SiteName"].ToString()')" title="Đánh dấu sản phẩm yêu thích"><i class="fa fa-heart"></i><span class="text-hide">Yêu thích</span></a>
+                                                <a class="button" style="cursor: pointer;" href="@Url.RouteUrl("ProductDetails", new { slug = item.Name.ToAscii(), id = item.Id })" title="Xem chi tiết"><i class="fa fa-arrow-right"></i><span class="text-hide">Chi tiết</span></a>
+                                            </p>
 
-                                        <div class="eshop-cart-area">
-                                            <button id="add-to-cart-@item.Id" class="btn btn-primary" onclick="flyToCart(@item.Id);">Thêm vào giỏ</button>
+                                            <div class="eshop-cart-area">
+                                                <button id="add-to-cart-@item.Id" class="btn btn-primary" onclick="flyToCart(@item.Id);">Thêm vào giỏ</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="eshop-info col-md-8">
-                                <div class="eshop-info-block">
-                                    <h4 class="eshop-product-title">
-                                        <a href="@Url.RouteUrl("ProductDetails", new { slug = item.Name.ToAscii(), id = item.Id })" title="@item.Name">@item.Name</a>
-                                    </h4>
-                                    <div class="eshop-product-desc">
-                                        @item.Description
-                                    </div>
-                                    <div class="row eshop-table">
-                                        <div class="eshop-product-review col-xs-6 col-sm-6">
-                                            <span itemprop="review" itemscope="" itemtype="http://schema.org/Review-aggregate">
-                                                <i class="fa fa-tag" aria-hidden="true"></i>@rd.Next(10)
-                                                <i class="fa fa-eye" aria-hidden="true"></i>@item.Views
-                                            </span>
+                                <div class="eshop-info col-md-8">
+                                    <div class="eshop-info-block">
+                                        <h4 class="eshop-product-title">
+                                            <a href="@Url.RouteUrl("ProductDetails", new { slug = item.Name.ToAscii(), id = item.Id })" title="@item.Name">@item.Name</a>
+                                        </h4>
+                                        <div class="eshop-product-desc">
+                                            @item.Description
                                         </div>
-                                        <div class="eshop-product-price col-xs-6 col-sm-6">
-                                            <p>
-                                                @if (item.Discount.Value > 0)
-                                                {
-                                                    <span class="eshop-base-price">@Html.FormatValue(item.Price, "{0:0,0}")đ</span>
-                                                }
-                                                <span class="eshop-sale-price">@Html.FormatValue(item.PriceAfter, "{0:0,0}")đ</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="eshop-buttons">
-                                        <div class="eshop-cart-area">
-                                            <div class="input-append input-prepend input-group bootstrap-touchspin">
-                                                <span class="eshop-quantity">
-                                                    <input type="text" class="eshop-quantity-value" id="quantity_@item.Id" name="quantity" value="1">
-                                                    <span class="input-group-btn-vertical">
-                                                        <a class="btn btn-default button-plus" id="@item.Id" data="up"><i class="icon-chevron-up"></i></a>
-                                                        <a class="btn btn-default button-minus" id="@item.Id" data="down"><i class="icon-chevron-down"></i></a>
-                                                    </span>
+                                        <div class="row eshop-table">
+                                            <div class="eshop-product-review col-xs-6 col-sm-6">
+                                                <span itemprop="review" itemscope="" itemtype="http://schema.org/Review-aggregate">
+                                                    <i class="fa fa-tag" aria-hidden="true"></i>@rd.Next(10)
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>@item.Views
                                                 </span>
                                             </div>
-                                            <button id="add-to-cart-@item.Id" class="btn btn-primary" onclick="flyToCart(@item.Id);" value="Thêm vào giỏ">
-                                                <i class="fa fa-shopping-cart">&nbsp;</i>&nbsp;Thêm vào giỏ
-                                            </button>
+                                            <div class="eshop-product-price col-xs-6 col-sm-6">
+                                                <p>
+                                                    @if (item.Discount != null && item.Discount.Value > 0)
+                                                    {
+                                                        <span class="eshop-base-price">@Html.FormatValue(item.Price, "{0:0,0}")đ</span>
+                                                    }
+                                                    <span class="eshop-sale-price">@Html.FormatValue(item.PriceAfter, "{0:0,0}")đ</span>
+                                                </p>
+                                            </div>
                                         </div>
-                                        <p>
-                                            <a class="btn button" style="cursor: pointer;" onclick="addToWishList(@item.Id, '@WebConfigurationManager.AppSettings["SiteName"].ToString()')" title="Đánh dấu sản phẩm yêu thích"><i class="fa fa-heart"></i>Đánh dấu Yêu thích</a>
-                                            <a class="btn button" style="cursor: pointer;" href="@Url.RouteUrl("ProductDetails", new { slug = item.Name.ToAscii(), id = item.Id })" title="Xem chi tiết">Chi tiết <i class="fa fa-arrow-right"></i></a>
-                                        </p>
+                                        <div class="eshop-buttons">
+                                            <div class="eshop-cart-area">
+                                                <div class="input-append input-prepend input-group bootstrap-touchspin">
+                                                    <span class="eshop-quantity">
+                                                        <input type="text" class="eshop-quantity-value" id="quantity_@item.Id" name="quantity" value="1">
+                                                        <span class="input-group-btn-vertical">
+                                                            <a class="btn btn-default button-plus" id="@item.Id" data="up"><i class="icon-chevron-up"></i></a>
+                                                            <a class="btn btn-default button-minus" id="@item.Id" data="down"><i class="icon-chevron-down"></i></a>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <button id="add-to-cart-@item.Id" class="btn btn-primary" onclick="flyToCart(@item.Id);" value="Thêm vào giỏ">
+                                                    <i class="fa fa-shopping-cart">&nbsp;</i>&nbsp;Thêm vào giỏ
+                                                </button>
+                                            </div>
+                                            <p>
+                                                <a class="btn button" style="cursor: pointer;" onclick="addToWishList(@item.Id, '@WebConfigurationManager.AppSettings["SiteName"].ToString()')" title="Đánh dấu sản phẩm yêu thích"><i class="fa fa-heart"></i>Đánh dấu Yêu thích</a>
+                                                <a class="btn button" style="cursor: pointer;" href="@Url.RouteUrl("ProductDetails", new { slug = item.Name.ToAscii(), id = item.Id })" title="Xem chi tiết">Chi tiết <i class="fa fa-arrow-right"></i></a>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    if (stt % 3 == 0 || stt == Model.Count())
-                    {
-                        @Html.Raw(clearfixDivEnd)
+                        if (stt % 3 == 0 || stt == Model.Count())
+                        {
+                            @Html.Raw(clearfixDivEnd)
+                        }
+                        stt++;
                     }
-                    stt++;
                 }
 
                 <div class="row-fluid">
                     <div class="pagination">
-                        @Html.PagedListPager(Model, page => Url.HttpRouteUrl("SearchProduct", new { keyword = ViewBag.keyword, page = page }))
+                        @{ if (Model == null) { }
+                            else
+                            {
+                                Html.PagedListPager(Model, page => Url.HttpRouteUrl("SearchProduct", new { keyword = ViewBag.keyword, page = page }));
+                            }
+}
                     </div>
                 </div>
             </div>

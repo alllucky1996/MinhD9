@@ -1,0 +1,7 @@
+D:\Git\FashionGo - full\FashionGo - full\PassHelper\obj\Debug\PassHelper.csprojAssemblyReference.cache
+D:\Git\FashionGo - full\FashionGo - full\PassHelper\obj\Debug\PassHelper.csproj.CoreCompileInputs.cache
+D:\Git\FashionGo - full\FashionGo - full\PassHelper\bin\Debug\PassHelper.pdb
+D:\Git\FashionGo - full\FashionGo - full\PassHelper\obj\Debug\PassHelper.pdb
+D:\Git\FashionGo - full\FashionGo - full\PassHelper\bin\Debug\PassHelper.exe.config
+D:\Git\FashionGo - full\FashionGo - full\PassHelper\bin\Debug\PassHelper.exe
+D:\Git\FashionGo - full\FashionGo - full\PassHelper\obj\Debug\PassHelper.exe
