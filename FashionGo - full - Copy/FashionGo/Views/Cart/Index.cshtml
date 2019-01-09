@@ -1,0 +1,189 @@
+﻿@using FashionGo.Models.Entities
+@using FashionGo.Models
+@model IEnumerable<Product>
+@{
+    ViewBag.Title = "Giỏ hàng của bạn";
+    Layout = "~/Views/Shared/_ClearLayout.cshtml";
+}
+
+<div class="eshop-shopping-cart">
+    <div class="page-header clearfix">
+        <h1 class="page-title">
+            @ViewBag.Title
+        </h1>
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <th>ẢNH</th>
+            <th>SẢN PHẨM</th>
+            <th>GIÁ BÁN</th>
+            <th>SỐ LƯỢNG</th>
+            <th>THÀNH TIỀN</th>
+        </tr>
+        @foreach (Product p in Model)
+        {
+            <tr id="row-@p.Id">
+                <td class="muted eshop-center-text">
+                    <img src="@p.FeaturedImage" style="width: 52px; height: auto;" />
+                </td>
+                <td>
+                    <h4 class="eshop-product-title">
+                        <a href="@Url.RouteUrl("ProductDetails", new { id = p.Id, slug = p.Name.ToAscii() })" target="_blank">
+                            @p.Name
+                        </a>
+                    </h4>
+
+                </td>
+                <td>
+                    @Html.FormatValue(p.PriceAfter, "{0:0,0}")<sup>đ</sup>
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <th>S</th>
+                            <th>M</th>
+                            <th>L</th>
+                            <th>XL</th>
+                            <th>Bỏ</th>
+                        </tr>
+                        <tr>
+                            <td><input type="number" min="0" class="input-mini quantity" value="@(p.S== null?0:p.S)" name="quantity[@p.Id]" data-id="@p.Id" id="quantity_@p.Id" slS="slS"></td>
+                            <td><input type="number" min="0" class="input-mini quantity" value="@(p.M==null?0:p.M)" name="quantity[@p.Id]" data-id="@p.Id" id="quantity_@p.Id" slM="slM"></td>
+                            <td> <input type="number" min="0" class="input-mini quantity" value="@(p.L==null?0:p.L)" name="quantity[@p.Id]" data-id="@p.Id" id="quantity_@p.Id" slL="slL"></td>
+                            <td><input type="number" min="0" class="input-mini quantity" value="@(p.XL== null?0:p.XL)" name="quantity[@p.Id]" data-id="@p.Id" id="quantity_@p.Id" slXL="slXL"></td>
+                            <td>
+                                <a class="eshop-remove-item-cart btn text-danger" href="#" data-id="@p.Id" onclick="return deleteFromCart(@p.Id);" title="Xóa khỏi giỏ hàng">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+
+                    @{ if (p.PriceAfter !=null)
+                        {
+                    <span id="sum-@p.Id"> @Html.FormatValue(p.PriceAfter * (p.Tong == 0 ? 1 : p.Tong), "{0:0,0}")</span>
+                        }
+                        else
+                        {
+                            <span id="sum-@p.Id">
+                                @Html.FormatValue(p.Price * (p.Tong == 0 ? 1 : p.Tong), "{0:0,0}")
+                            </span><sup>đ</sup>
+                        }
+                    }
+
+
+                </td>
+            </tr>
+        }
+        <tr>
+            <th colspan="4" style="text-align:right">Tổng cộng:</th>
+            <th>
+                <strong><span class="brand-primary-color nn-cart-total" id="TongTien">@Html.FormatValue(ShoppingCart.Cart.Total, "{0:0,0}")</span><sup>đ</sup></strong>
+            </th>
+        </tr>
+    </table>
+    
+    <div class="row">
+        <div class="col-md-4 col-xs-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>
+                            <label for="coupon_code" class="control-label"><strong>Nhập mã Coupon: </strong></label>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="controls">
+                                    <input type="text" id="coupon_code" name="coupon_code" class="input-large" value="">
+                                    <button type="button" class="btn btn-small btn-danger" onclick="applyCoupon();">Kiểm tra</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="eshop-cart-checkout">
+        
+        <form action="/Cart/Clear" method="post">
+            <a href="@Url.RouteUrl("Home")" class="btn btn-success pull-left">
+                <i class="fa fa-shopping-bag"></i> THÊM SẢN PHẨM KHÁC
+            </a>
+            <a href="@Url.RouteUrl("Checkout")" class="btn btn-primary pull-right" >
+                <i class="fa fa-cart-arrow-down"></i> Đặt Hàng
+            </a>
+            <button class="btn btn-default pull-right" onclick="return confirm('Xác nhận bạn muốn xóa giỏ hàng?');">
+                <i class="fa fa-trash"></i> Xóa giỏ hàng
+            </button>
+        </form>
+    </div>
+    
+</div>
+
+<script>
+    jQuery(function ($) {
+        
+            $(document).delegate(".quantity", "change", function () {
+                pid = $(this).attr("data-id");
+                qty = $(this).val();
+                slS = $(this).attr("slS") =='slS'?($(this).val()):0;
+                slM = $(this).attr("slM") == 'slM' ? ($(this).val()) : 0;
+                slL = $(this).attr("slL") == 'slL' ? ($(this).val()) : 0;
+                slXL = $(this).attr("slXL") == 'slXL' ? ($(this).val()) : 0;
+               
+                $.ajax({
+                    url: "/Cart/Update",
+                    data: { id: pid, quantity: qty, slS: slS, slM: slM, slL: slL, slXL: slXL},
+                    success: function (response) {
+                        $("#sum-" + pid).text($.number(response.Total));
+                        //$(".nn-cart-total").text($.number(response.Total));
+                        $("#TongTien").text(response.Total);
+                    $("#cart-item").load("/Cart/_PartialCart");
+                    },
+                    complete: function () {
+                        updateOrderSummary();
+                    }
+                });
+            });
+       
+    }
+    )
+    function deleteFromCart(pid) {
+        var tr = jQuery(".row-" + pid);
+        jQuery.ajax({
+            url: "/Cart/Remove",
+            data: { id: pid },
+            beforeSend: function () {
+                jQuery('.wait').html('<img src="Assets/Frontend/components/com_eshop/assets/images/loading.gif" alt="" />');
+            },
+            success: function (response) {
+                $("#TongTien").text(response.Total);
+                //jQuery('.wait').html('');
+                //jQuery("#eshop-cart-total").text(response.Count);
+
+                //jQuery("#cart-item").load("/Cart/Index");
+                //if (tr.length) {
+                //    tr.remove();
+                //}
+                //tr.hide(500);
+                location.reload();
+            },
+            complete: function () {
+                updateOrderSummary();
+            }
+        });
+        return false;
+    }
+</script>
+
+    
+    
+

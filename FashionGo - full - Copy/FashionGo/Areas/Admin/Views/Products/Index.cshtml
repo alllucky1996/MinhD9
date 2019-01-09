@@ -1,0 +1,133 @@
+﻿@model IEnumerable<FashionGo.Models.Entities.Product>
+
+@{
+    ViewBag.Title = "Danh sách sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<div class="box">
+    <div class="box-body">
+        <table class="table table-bordered table-striped datatable">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FeaturedImage)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductCategory.Name)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Amount)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Discount)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PriceAfter)
+                    </th>
+
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.CreateDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EndDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ExtraDiscount)
+                        <span></span>
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IsFeatured)
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.User.UserName)
+                        </th>*@
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="@item.FeaturedImage" style="max-width:36px;" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductCategory.Name)
+                        </td>
+
+                        <td>
+                            @if (item.Tong > 0)
+                            {
+                                @*@Html.DisplayFor(modelItem => item.Tong)*@
+                                <p>
+                                    <span>S: @item.S; </span>
+                                    <span>M: @item.M; </span>
+                                </p>
+                                <p>
+                                    <span>L: @item.L; </span>
+                                    <span>XL: @item.XL; </span>
+                                </p>
+                                <p>Tổng: @item.Tong</p>
+                            }
+                            else if (item.Amount > 0)
+                            {
+                                @*@Html.LabelFor(modelItem => item.Amount, htmlAttributes: new { @class = "control-label" })*@
+                                @item.Amount <span class="label-warning">(Chưa phân loại)</span>
+                            }
+                            else
+                            {
+                                <span class="label-danger">Đã hết</span>
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Discount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.PriceAfter)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreateDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EndDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ExtraDiscount)
+                        </td>
+
+                        <td>
+                            @*@Html.DisplayFor(modelItem => item.IsFeatured)*@
+                            <span>@(item.IsFeatured == true ? "Nổi bật" : "")</span>
+                        </td>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.User.FullName)
+                            </td>*@
+                        <td>
+                            @Html.ActionLink("Sửa", "Edit", new { id = item.Id }, new { @class = "btn2 btn-success" })
+                            @Html.ActionLink("Chi tiết", "Details", new { id = item.Id }, new { @class = "btn2 btn-info" })
+                            @Html.ActionLink("Xóa", "Delete", new { id = item.Id }, new { @class = "btn2 btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

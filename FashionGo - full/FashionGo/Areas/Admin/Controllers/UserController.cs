@@ -27,7 +27,7 @@ namespace FashionGo.Areas.Admin.Controllers
         }
 
         // GET: Admin/Categories/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {

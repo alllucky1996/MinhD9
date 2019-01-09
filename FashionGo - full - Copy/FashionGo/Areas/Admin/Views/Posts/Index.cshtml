@@ -1,0 +1,67 @@
+﻿@model IEnumerable<FashionGo.Models.Entities.Post>
+
+@{
+    ViewBag.Title = "Posts Manager";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<p>
+   @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-success" })
+</p>
+<div class="box">
+    <div class="box-body">
+        <table class="table table-bordered table-striped datatable" id="example">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Category.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Active)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.createDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.User.UserName)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@item.Image" style="max-width:48px;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Active)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.createDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User.UserName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Xem", "Details", new { id = item.Id }, new { @class = "btn btn-xs btn-primary" })
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.Id }, new { @class = "btn btn-xs btn-warning" })
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.Id }, new { @class = "btn btn-xs btn-danger", onclick = "return confirm('Bạn có chắc muốn xóa?')" })
+                    </td>
+                </tr>
+            }
+        </table>
+
+    </div>
+</div>

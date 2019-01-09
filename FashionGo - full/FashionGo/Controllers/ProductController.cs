@@ -59,7 +59,8 @@ namespace FashionGo.Controllers
             if (results.Count() == 0)
             {
                 ViewBag.notice = "Không tìm thấy sản phẩm phù hợp với từ khóa: \"" + keyword + "\"";
-                return View(db.Products.Where(p => p.Actived == true).ToList().ToPagedList(pageNumber, pageSize));
+                ViewBag.Title = "Không tìm thấy sản phẩm phù hợp với từ khóa: \"" + keyword + "\"";
+                return View();
             }
 
             ViewBag.Title = "Có " + results.Count() + " sản phẩm phù hợp với từ khóa: \"" + keyword + "\"";

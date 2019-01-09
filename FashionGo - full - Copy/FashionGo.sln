@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FashionGo", "FashionGo\FashionGo.csproj", "{A3FEF39B-87E3-4D06-990E-FCDF34C2C592}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commons", "Commons\Commons.csproj", "{AA8B446E-8153-48E7-8F6D-1666605B7684}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassHelper", "PassHelper\PassHelper.csproj", "{4637C9D7-2696-465B-B6A7-455FFE6F8BFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3FEF39B-87E3-4D06-990E-FCDF34C2C592}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FEF39B-87E3-4D06-990E-FCDF34C2C592}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3FEF39B-87E3-4D06-990E-FCDF34C2C592}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3FEF39B-87E3-4D06-990E-FCDF34C2C592}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA8B446E-8153-48E7-8F6D-1666605B7684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA8B446E-8153-48E7-8F6D-1666605B7684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA8B446E-8153-48E7-8F6D-1666605B7684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA8B446E-8153-48E7-8F6D-1666605B7684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4637C9D7-2696-465B-B6A7-455FFE6F8BFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4637C9D7-2696-465B-B6A7-455FFE6F8BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4637C9D7-2696-465B-B6A7-455FFE6F8BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4637C9D7-2696-465B-B6A7-455FFE6F8BFB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0CCFE243-D02D-406B-A3E1-B6F27D5F6EE6}
+	EndGlobalSection
+EndGlobal
