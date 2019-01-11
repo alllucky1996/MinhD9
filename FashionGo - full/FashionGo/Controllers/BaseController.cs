@@ -8,6 +8,7 @@ namespace FashionGo.Controllers
     public class BaseController : Controller
     {
         public ApplicationDbContext db = new ApplicationDbContext();
+        protected static SoSanh SoSanhSp = new SoSanh() ;
 
         protected override void Dispose(bool disposing)
         {

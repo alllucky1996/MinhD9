@@ -16,7 +16,7 @@ namespace FashionGo.Controllers
     {
 
         public ShoppingCart cart = ShoppingCart.Cart;
-
+        string em = "";
         [HttpGet]
         public ActionResult Checkout()
         {
@@ -67,7 +67,7 @@ namespace FashionGo.Controllers
                
 
                 var user = db.Users.Find(model.UserId);
-                string em = form["Email"];
+                 em = form["Email"];
                 var us = db.Users.Where(o => o.Email == em).FirstOrDefault();
                 //Kiểm tra nếu là người dùng mới thì tạo tài khoản
                 if ( us== null)
@@ -154,7 +154,9 @@ namespace FashionGo.Controllers
                         msg += "<br>Chúc bạn một ngày tốt lành.";
                         msg += "<p></p><p></p>-BQT ZdealVN!.</p>";
 
-                        XMail.Send(newUser.Email, subject, msg);
+                        //bool xxx= XMail.Sended(newUser.Email, subject, msg);
+                       int xxx= vnMail.GuiMail(subject, msg, em, "dungitfa@gmail.com", "");
+
                     }
                     else
                     {
@@ -205,37 +207,35 @@ namespace FashionGo.Controllers
                     }
                     if (db.SaveChanges() > 0)
                     {
-                        cart.Clear();
+                        
 
                         Success(string.Format("<b><h5>{0}</h4></b>", "Đặt hàng thành công, chúng tôi sẽ liên hệ lại với bạn để xác nhận đơn hàng trước khi tiến hành giao hàng."), true);
 
-                        //Gửi SMS xác nhận và báo tin cho Sale
+                        //Gửi SMS/Mail xác nhận và báo tin cho Sale
 
                         var customerMsg = "FashionGo: Dat hang thanh cong don hang:#" + model.Id + ", Voi so tien: " + string.Format("{0:0,0}vnđ", model.TotalAmount);
                         var saleSMS = "FashionGo: Don hang moi #" + model.Id + " tu KH: " + model.ReceiveName + " - " + model.ReceivePhone;
                         //string response = sms.sendSMS(model.ReceivePhone, customerMsg, 2, "");
                         //response = sms.sendSMS("0327835923", saleSMS, 2, "");
                         string subject = "Đơn hàng ";
-                        var msg = "Xin chào, " + model.ReceiveName;
-                        msg += "<br>bạn đã đặt hàng thành công đơn hàng: " + model.Id + ", Voi so tien: " + string.Format("{0:0,0}vnđ", model.TotalAmount);
+                        var msg = "Fashion kính chào quý khách: " + model.ReceiveName;
+                        msg += "<br>quý khách đã đặt hàng thành công đơn hàng: " + model.Id + ", với số tiền: " + string.Format("{0:0,0}vnđ", cart.Total);
                         msg += "<br>Chi tiết:";
-                        foreach (var item in model.OrderDetails)
+                        foreach (var item in cart.Items)
                         {
-                            msg += "<br>Sản phẩm: " + item.Product.Name;
-                            msg += "<br>Số lượng: " + item.SoLuong;
-                            msg += "<br>Chú thích: " + item.Note;
+                            msg += "<br>Sản phẩm: " + item.Name;
+                            msg += "<br>Số lượng: " + item.GetSoLuong;
+                           
                         }
-                        msg += "<br>Cảm ơn bạn đã quan tâm sử dụng dịch vụ của FashionGo. mọi thắc mắc xin liên hệ hotline: 0901.002.822-0965.002.822.";
-                        msg += "<br>FashionGo Hân hạnh được phục vụ bạn.";
-                        msg += "<br>Chúc bạn một ngày tốt lành.";
+                        msg += "<br>Chú thích: " + model.Note;
+                        msg += "<br>Cảm ơn bạn đã quan tâm sử dụng dịch vụ của FashionGo. mọi thắc mắc xin liên hệ hotline: 0978 132 474-032 783 5923";
+                        msg += "<br>Hân hạnh được phục vụ quý khách.";
+                        msg += "<br>Chúc quý khách một ngày tốt lành.";
                         msg += "<p></p><p></p>-BQT NguyenAnhDung!.</p>";
-                        bool ok =  XMail.Sended(em, subject, msg);
-                       // int ok = vnMail.GuiMail(subject, msg, em, "lmetuoi@myschool.host", "");
-                        //if (!ok) {
-                        //    ModelState.AddModelError("","Không gửi đc mail");
-                        //    Debug.WriteLine("Không gửi đc mail");
-                        //}
-
+                        msg += "<p></p><p></p>-SDT: 032 783 5923.</p>";
+                        int ok = vnMail.GuiMail(subject, msg, em, "dungitfa@gmail.com", "");
+                        
+                        cart.Clear();
                         return RedirectToAction("Detail", new { id = model.Id });
                     }
                 }
@@ -274,6 +274,7 @@ namespace FashionGo.Controllers
         {
             var order = db.Orders.Find(id);
             ViewBag.Total = order.StatusId;
+            ViewBag.Email = em;
             bool free = false;
             if (cart.Total > 300000 || order.OrderDetails.Count > 2)
                 free = true;

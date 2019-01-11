@@ -55,7 +55,8 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="PassHelper">
+    <Reference Include="PassHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\FashionGo\ThuVien\PassHelper.dll</HintPath>
     </Reference>
     <Reference Include="System" />

@@ -99,7 +99,35 @@ function flyToCart(pid) {
 
     return false;
 }
+function SoSanh(pid) {
 
+    var ty = jQuery("#addToCart").closest('.product').find('#' + pid);
+    var img = jQuery("#product-image-" + pid);
+   
+    jQuery.ajax({
+        type: 'GET',
+        dataType: 'json',
+        url: 'SoSanh/AddOne',
+        data: { id: pid },
+        beforeSend: function () {
+            jQuery('.add-to-cart').attr('disabled', true);
+            jQuery('.add-to-cart').after('<span class="wait">&nbsp;<img src="Assets/Frontend/components/com_eshop/assets/images/loading.gif" /></span>');
+        },
+        complete: function () {
+            jQuery('.add-to-cart').attr('disabled', false);
+            jQuery('.wait').remove();
+        },
+        success: function (result) {
+            //alert(result.Count);
+            if (result.IsOk === true) alert("Đã thêm '" + result.Data + "' vào so sánh");
+            else {
+                alert("Không thêm được '" + result.Data + "' vào so sánh");
+            }
+        }
+    });
+
+    return false;
+}
 function updateOrderSummary() {
 
     jQuery.ajax({

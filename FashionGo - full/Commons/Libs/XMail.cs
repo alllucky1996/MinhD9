@@ -19,10 +19,10 @@ namespace Commons.Libs
         public static string SMTPServer = WebConfigurationManager.AppSettings["SMTPServer"].ToString();
         public static int Port = Int32.Parse(WebConfigurationManager.AppSettings["Port"].ToString());
         public static string CredentialUserName = WebConfigurationManager.AppSettings["CredentialUserName"].ToString();
-        public static string CredentialPassword = p.Decode(WebConfigurationManager.AppSettings["CredentialPassword"].ToString());
+        public static string CredentialPassword =  WebConfigurationManager.AppSettings["CredentialPassword"].ToString();
         public static string EnableSsl = "False";
         public static bool ssl = false;
-        public static string from = "dungitfa@gmail.com";
+        public static string from = "itfa.ahihi@gmail.com";
 
         public static void Send(String to, String subject, String body)
         {
@@ -47,12 +47,13 @@ namespace Commons.Libs
                 String cc = "";
                 String bcc = "";
                 String attachments = "";
-                Thread email = new Thread(delegate ()
-                {
-                    SendAsyncEmail(from, to, cc, bcc, subject, body, attachments);
-                });
-                email.IsBackground = true;
-                email.Start();
+                //Thread email = new Thread(delegate ()
+                //{
+                //    SendAsyncEmail(from, to, cc, bcc, subject, body, attachments);
+                //});
+                //email.IsBackground = true;
+                //email.Start();
+                SendAsyncEmail(from, to, cc, bcc, subject, body, attachments);
                 return true;
             }
             catch (Exception ex)
@@ -106,7 +107,7 @@ namespace Commons.Libs
                 ssl = false;
             }
 
-            var message = new MailMessage();
+            var message = new System.Net.Mail.MailMessage();
             message.IsBodyHtml = true;
             message.From = new MailAddress(from);
             message.To.Add(new MailAddress(to));
@@ -157,68 +158,70 @@ namespace Commons.Libs
         {
             try
             {
-                if (EnableSsl == "0" || EnableSsl == "true" || EnableSsl == "True" || EnableSsl == "TRUE")
+                if (true)
                 {
-                    ssl = true;
-                }
-                else
-                {
-                    ssl = false;
-                }
-
-                MailMessage message = new MailMessage();
-                message.From = new MailAddress(from);
-                message.Subject = subject;
-                message.Body = body;
-                message.IsBodyHtml = true;
-                message.ReplyToList.Add(from);
-
-
-                if (to != null)
-                {
-                    String[] toes = to.Split(';', ',', ' ');
-                    foreach (var t in toes)
+                    if (EnableSsl == "0" || EnableSsl == "true" || EnableSsl == "True" || EnableSsl == "TRUE")
                     {
-                        message.To.Add(new MailAddress(t));
+                        ssl = true;
+                    }
+                    else
+                    {
+                        ssl = false;
                     }
 
-
-                }
-
-                if (CC.Length > 0)
-                {
-                    String[] CCs = CC.Split(';', ',', ' ');
-                    foreach (string c in CCs)
+                    MailMessage message = new MailMessage();
+                    message.From = new MailAddress(from);
+                    message.Subject = subject;
+                    message.Body = body;
+                    message.IsBodyHtml = true;
+                    message.ReplyToList.Add(from);
+                    if (to != null)
                     {
-                        message.CC.Add(new MailAddress(c));
-                    }
-                }
+                        String[] toes = to.Split(';', ',', ' ');
+                        foreach (var t in toes)
+                        {
+                            message.To.Add(new MailAddress(t));
+                        }
 
-                if (BCC.Length > 0)
-                {
-                    String[] BCCs = BCC.Split(';', ',', ' ');
-                    foreach (string b in BCCs)
+
+                    }
+
+                    if (CC.Length > 0)
                     {
-                        message.Bcc.Add(new MailAddress(b));
+                        String[] CCs = CC.Split(';', ',', ' ');
+                        foreach (string c in CCs)
+                        {
+                            message.CC.Add(new MailAddress(c));
+                        }
                     }
-                }
 
-                if (attachments.Length > 0)
-                {
-                    String[] fileNames = attachments.Split(';', ',');
-                    foreach (var fileName in fileNames)
+                    if (BCC.Length > 0)
                     {
-                        message.Attachments.Add(new Attachment(fileName));
+                        String[] BCCs = BCC.Split(';', ',', ' ');
+                        foreach (string b in BCCs)
+                        {
+                            message.Bcc.Add(new MailAddress(b));
+                        }
                     }
+
+                    if (attachments.Length > 0)
+                    {
+                        String[] fileNames = attachments.Split(';', ',');
+                        foreach (var fileName in fileNames)
+                        {
+                            message.Attachments.Add(new Attachment(fileName));
+                        }
+                    }
+
+                    var client = new SmtpClient(SMTPServer, Port)
+                    {
+                        Credentials = new NetworkCredential(CredentialUserName, CredentialPassword),
+                        EnableSsl = ssl
+                    };
+
+                    client.Send(message);
                 }
-
-                var client = new SmtpClient(SMTPServer, Port)
-                {
-                    Credentials = new NetworkCredential(CredentialUserName, CredentialPassword),
-                    EnableSsl = ssl
-                };
-
-                client.Send(message);
+             
             }
             catch (Exception ex)
             {
@@ -243,7 +246,7 @@ namespace Commons.Libs
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
             };
-            var message = new MailMessage(fromAddress, toAddress)
+            var message = new System.Net.Mail.MailMessage(fromAddress, toAddress)
             {
                 Subject = subject,
                 Body = body,
@@ -285,11 +288,13 @@ namespace Commons.Libs
         }
         public static int GuiMail(string title, string content, string toEmail, string ccMail, string bccMail)
         {
+            
             PasswordObject p = new PasswordObject();
-           
+           // Console.WriteLine("DeCode:" + p.Decode(pass.PassWord));
             string fromEmail = WebConfigurationManager.AppSettings["CredentialUserName"].ToString();
             string fromName = "Hệ thống bán hàng trực tuyến ";
-            string fromPassword = p.Decode(WebConfigurationManager.AppSettings["CredentialPassword"].ToString());
+            string fromPassword =  p.Decode(WebConfigurationManager.AppSettings["CredentialPassword"].ToString());
+
             return vnMail.SendGmail(fromEmail, fromName, fromPassword, toEmail, toEmail.Split("@".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0], title, content, ccMail, bccMail);
         }
     }

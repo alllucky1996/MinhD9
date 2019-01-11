@@ -52,6 +52,7 @@
                             <ul class="nav  nav-pills  nav-pills">
                                 <li class="item-109"><a href="@Url.RouteUrl("ProductFavorite")"><i class="icon fa fa-heart"></i> Sản phẩm yêu thích <span id="Dlove-total"></span></a></li>
                                 <li class="item-108"><a href="@Url.RouteUrl("ShopingCart")"><i class="fa fa-shopping-bag"></i> Giỏ hàng</a></li>
+                                <li class="item-108"><a href="@Url.RouteUrl("SoSanh")"><i class="fa fa-sort-down"></i> Bảng so sánh</a></li>
                                 @if (Request.IsAuthenticated)
                                 {
                                     <li class="item-107"><a href="@Url.RouteUrl("AccountLogin", new { returnUrl = "/Admin" })"><i class="fa fa-user"></i> Tài khoản</a></li>

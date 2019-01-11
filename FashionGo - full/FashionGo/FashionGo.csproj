@@ -229,6 +229,7 @@
     <Compile Include="Controllers\BannerAdsController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\SlideController.cs" />
+    <Compile Include="Controllers\SoSanhController.cs" />
     <Compile Include="Migrations\201608081717562_new9-8.cs" />
     <Compile Include="Migrations\201608081717562_new9-8.Designer.cs">
       <DependentUpon>201608081717562_new9-8.cs</DependentUpon>
@@ -281,9 +282,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ExecuteResult.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="Models\SoSanh.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -3942,6 +3945,7 @@
     <Content Include="Views\Product\ThoiTrangNu.cshtml" />
     <Content Include="Views\Product\_ThoiTrangNu.cshtml" />
     <Content Include="Views\Slide\Index.cshtml" />
+    <Content Include="Views\SoSanh\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

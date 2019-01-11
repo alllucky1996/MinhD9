@@ -24,11 +24,14 @@
                                                 <div class="eshop-buttons">
                                                     <p>
                                                         @*<a class="button dlike" style="cursor: pointer;" onclick="addToWishList(@item.Id, '@WebConfigurationManager.AppSettings["SiteName"].ToString()')" title="Đánh dấu sản phẩm yêu thích"><i class="fa fa-heart"></i><span class="text-hide">Yêu thích</span></a>*@
-                                                        <a class="button dlike" style="cursor: pointer;" dung="@item.Id"  title="Đánh dấu sản phẩm yêu thích"><i class="fa fa-heart"></i><span class="text-hide">Yêu thích</span></a>
+                                                        <a class="button dlike" style="cursor: pointer;" dung="@item.Id" title="Đánh dấu sản phẩm yêu thích"><i class="fa fa-heart"></i><span class="text-hide">Yêu thích</span></a>
                                                         <a class="button" style="cursor: pointer;" href="@Url.RouteUrl("ProductDetails", new { slug = item.Name.ToAscii(), id = item.Id })" title="Xem chi tiết"><i class="fa fa-arrow-right"></i><span class="text-hide">Chi tiết</span></a>
                                                     </p>
                                                     <div class="eshop-cart-area">
                                                         <button id="add-to-cart-@item.Id" class="btn btn-primary" onclick="flyToCart(@item.Id); ">Thêm vào giỏ</button>
+                                                    </div>
+                                                    <div class="eshop-cart-area">
+                                                        <button id="add-to-cart-@item.Id" class="btn btn-info" onclick="SoSanh(@item.Id); ">So sánh</button>
                                                     </div>
                                                 </div>
                                             </div>

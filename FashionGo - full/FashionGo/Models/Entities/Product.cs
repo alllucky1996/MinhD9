@@ -64,9 +64,33 @@
         [Display(Name = "Số lượng")]
         [NotMapped]
         public int? Tong { get {
-
                 return (((S == null ? 0 : S) + (L == null ? 0 : L) + (M == null ? 0 : M) + (XL == null ? 0 : XL)));
             } }
+        [NotMapped]
+        public string GetSoLuong
+        {
+            get
+            {
+                string result = "";
+                if(S!= null)
+                {
+                    result += "S:" + S.Value;
+                    if (M != null)
+                    {
+                        result += "; M:" + M.Value;
+                        if (L != null)
+                        {
+                            result += "; L:" + L.Value;
+                            if (XL != null)
+                            {
+                                result += "; XL:" + XL.Value;
+                            }
+                        }
+                    }
+                }
+                return result;
+            }
+        }
 
         [Display(Name = "Kiểu SP")]
         public int? TypeId { get; set; }

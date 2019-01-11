@@ -23,8 +23,10 @@ namespace FashionGo
             routes.MapRoute(name: "BestSalerProduct", url: "danh-muc-xu-huong-thoi-trang-2018", defaults: new { controller = "Product", action = "BestSaleProducts", Id = "Best" },namespaces: new[] { "FashionGo.Controllers" });
             routes.MapRoute(name: "ThoiTrangNu", url: "danh-muc-thoi-trang-nu", defaults: new { controller = "Product", action = "ThoiTrangNu", style = 0,Id = "Best" }, namespaces: new[] { "FashionGo.Controllers" });
             routes.MapRoute(name: "ThoiTrangNam", url: "danh-muc-thoi-trang-nam", defaults: new { controller = "Product", action = "ThoiTrangNu", style = 1, Id = "Best" }, namespaces: new[] { "FashionGo.Controllers" });
-
-            //ShoppingCart
+            // so sánh sp
+            routes.MapRoute(name: "SoSanh", url: "SoSanh", defaults: new { controller = "SoSanh", action = "Index", Id = UrlParameter.Optional }, namespaces: new[] { "FashionGo.Controllers" });
+            routes.MapRoute(name: "AddSoSanh", url: "SoSanh/AddOne", defaults: new { controller = "SoSanh", action = "AddOne", Id = UrlParameter.Optional }, namespaces: new[] { "FashionGo.Controllers" });
+            //ShoppingCart 
             routes.MapRoute(name: "ShopingCart", url: "gio-hang", defaults: new { controller = "Cart", action = "Index", Id = UrlParameter.Optional }, namespaces: new[] { "FashionGo.Controllers" });
 
             //Order

@@ -218,5 +218,7 @@ namespace FashionGo.Models
         }
 
         public System.Data.Entity.DbSet<FashionGo.Models.UserViewModel> UserViewModels { get; set; }
+
+        //public System.Data.Entity.DbSet<FashionGo.Models.ApplicationUser> IdentityUsers { get; set; }
     }
 }

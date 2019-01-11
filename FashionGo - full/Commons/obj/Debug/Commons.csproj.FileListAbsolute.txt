@@ -79,6 +79,7 @@ D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\EntityFramework.dll
 D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\EntityFramework.SqlServer.dll
 D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\Microsoft.Web.Infrastructure.dll
 D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\Newtonsoft.Json.dll
+D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\PassHelper.dll
 D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\System.Web.Helpers.dll
 D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\System.Web.Mvc.dll
 D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\System.Web.Optimization.dll
@@ -107,4 +108,3 @@ D:\Git\FashionGo - full\FashionGo - full\Commons\obj\Debug\vi\Commons.resources.
 D:\Git\FashionGo - full\FashionGo - full\Commons\obj\Debug\Commons.csproj.CopyComplete
 D:\Git\FashionGo - full\FashionGo - full\Commons\obj\Debug\Commons.dll
 D:\Git\FashionGo - full\FashionGo - full\Commons\obj\Debug\Commons.pdb
-D:\Git\FashionGo - full\FashionGo - full\Commons\bin\Debug\PassHelper.dll

@@ -20,7 +20,7 @@ namespace FashionGo.Areas.Admin.Controllers
         public ActionResult Index()
         {
             var orders = db.Orders.Include(o => o.OrderStatus).Include(o => o.PaymentMethod).Include(o => o.Transport).Include(o => o.User);
-            return View(orders.ToList());
+            return View(orders.OrderByDescending(o=>o.OrderDate).ToList());
         }
 
         // GET: Admin/Orders/Details/5

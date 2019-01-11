@@ -1,0 +1,130 @@
+﻿@model FashionGo.Models.SoSanh
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ClearLayout.cshtml";
+    double a, b;
+
+}
+
+<h2>So sánh sản phẩm</h2>
+<div class="box">
+    <div class="box-body">
+        <table class="table table-bordered table-striped datatable">
+            <thead>
+                <tr>
+                    <th>Tiêu chí so sánh</th>
+                    <th>
+                        Sản phẩm 1
+                    </th>
+                    <th>
+                        So sánh
+                    </th>
+                    <th>
+                        Sản phẩm 2
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.sp1 != null && Model.sp2 != null)
+                {
+                    <tr>
+                        <td>Tên sản phẩm:</td>
+                        <td>@Model.sp1.Name</td>
+                        <td></td>
+                        <td>@Model.sp2.Name</td>
+                    </tr>
+                    <tr>
+                        <td>Hình ảnh:</td>
+                        <td><img src="@Model.sp1.FeaturedImage" alt="review image" style="max-height: 100px;" /></td>
+                        <td></td>
+                        <td><img src="@Model.sp2.FeaturedImage" alt="review image" style="max-height: 100px;" /></td>>
+                    </tr>
+                    <tr>
+                        <td>Là sản phẩm mới:</td>
+                        <td><span>@(Model.sp1.IsNew == true ? "V" : "")</span></td>
+                        <td>
+                            <span id="SpMoi"></span>
+
+                        </td>
+                        <td><span>@(Model.sp2.IsNew == true ? "V" : "")</span></td>
+                    </tr>
+                    <tr>
+                        <td>Là sản Đặc biệt:</td>
+                        <td><span>@(Model.sp1.IsFeatured == true ? "v" : "")</span></td>
+                        <td>
+                            <span id="SpDB">
+                            </span>
+                        </td>
+                        <td><span>@(Model.sp2.IsFeatured == true ? "v" : "")</span></td>
+                    </tr>
+                    <tr>
+                        <td>Giá</td>
+                        <td>
+                            <p>
+                                @if (Model.sp1.Discount != null && Model.sp1.Discount.Value > 0)
+                                {
+                                    <span class="eshop-base-price">@Html.FormatValue(Model.sp1.Price, "{0:0,0}")đ</span>
+                                }
+                                <span class="eshop-sale-price">@Html.FormatValue(Model.sp1.PriceAfter, "{0:0,0}")đ</span>
+                            </p>
+                        </td>
+                        <td>
+                            <span id="Gia">
+                            </span>
+                        </td>
+                        <td>
+                            <p>
+                                @if (Model.sp2.Discount != null && Model.sp2.Discount.Value > 0)
+                                {
+                                    <span class="eshop-base-price">@Html.FormatValue(Model.sp2.Price, "{0:0,0}")đ</span>
+                                }
+                                <span class="eshop-sale-price">@Html.FormatValue(Model.sp2.PriceAfter, "{0:0,0}")đ</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Thao tác:</td>
+                        <td>
+                            <button id="add-to-cart-@Model.sp1.Id" class="btn btn-primary" onclick="flyToCart(@Model.sp1.Id); ">Thêm vào giỏ</button>
+                        </td>
+                        <td>
+                            <span>
+
+                            </span>
+                        </td>
+                        <td>
+                            <button id="add-to-cart-@Model.sp2.Id" class="btn btn-primary" onclick="flyToCart(@Model.sp2.Id); ">Thêm vào giỏ</button>
+                        </td>
+                    </tr>
+                    <script>
+                            jQuery(document).ready(function () {
+                                jQuery('#SpMoi').text(spmoi('@Model.sp1.IsNew', '@Model.sp2.IsNew'));
+                                jQuery('#SpDB').text(spmoi('@Model.sp1.IsFeatured', '@Model.sp2.IsFeatured'));
+                                jQuery('#Gia').text(doubleSp(@(Model.sp1.PriceAfter == null ? Model.sp1.Price.Value : Model.sp1.PriceAfter.Value), @(Model.sp2.PriceAfter == null ? Model.sp2.Price.Value : Model.sp2.PriceAfter.Value)))
+                                
+                            });
+
+                            function spmoi(a,b) {
+                                var c;
+                                if (a === b) c = "==";
+                                if (a === "True" && b !== "True") c = ">";
+                                if (a !== "True" && b === "True") c = "<";
+                                return c;
+                            }
+                            function doubleSp(a, b) {
+                                if(a-b===0) return "=="
+                                if (a - b > 0) return ">"
+                                if (a - b < 0) return "<";
+                            }
+                    </script>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<p>
+
+    @Html.ActionLink("<<Trở lại trang chủ", "LastestProducts", "Product", null, new { @class = "btn btn-xs btn-default" })
+</p>
