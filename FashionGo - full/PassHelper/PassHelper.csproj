@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4637C9D7-2696-465B-B6A7-455FFE6F8BFB}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>PassHelper</RootNamespace>
     <AssemblyName>PassHelper</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>

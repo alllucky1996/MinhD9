@@ -10,11 +10,12 @@ namespace PassHelper
     {
         static void Main(string[] args)
         {
-            string Oldpass = "khong noi";
+            string Oldpass = "abc@2018";
             PasswordObject pass = new PasswordObject(Oldpass);
             Console.WriteLine("old:"+ Oldpass);
             Console.WriteLine("EndCode:" + pass.PassWord);
-            Console.WriteLine("DeCode:" + pass.Decode(pass.PassWord));
+            PasswordObject p = new PasswordObject();
+            Console.WriteLine("DeCode:" + p.Decode(pass.PassWord));
             Console.ReadKey();
         }
     }
